@@ -1,7 +1,7 @@
 <?php
 $sevidor = "localhost";
 $usuario = "root";
-$pass = "";
+$pass = "sudo";
 $db = "chat";
 
 $conexion = new mysqli($sevidor, $usuario, $pass, $db);
