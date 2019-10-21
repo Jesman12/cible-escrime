@@ -221,16 +221,21 @@
 						success: function(data, textStatus, jqXHR){
 							if(textStatus == "success"){
 								var buscar_IP_cible = "IP:";
+								var buscar_ID_cible = "id:";
 								var buscar_IP_FIN = "</html>";
 								var pos_IP_cible = data.indexOf(buscar_IP_cible);
+								var pos_ID_cible = data.indexOf(buscar_ID_cible);
 								var IP_cible = data.substr(pos_IP_cible+4);
+								var ID_cible = data.substr(pos_ID_cible+4);
 							if (IP_cible.length <= 30) {
 									var pos_IP_FIN = IP_cible.indexOf(buscar_IP_FIN);
+									var pos_ID_FIN = ID_cible.indexOf(" IP:");
 									IP_cible = IP_cible.substr(0,pos_IP_FIN-2);
+									ID_cible = IP_cible.substr(0,pos_ID_FIN-1);
 									var btn_conectar = document.createElement("button");
 									var P_IP = document.createElement("p");
 									var A_IP = document.createElement("a");
-									var A_Text = document.createTextNode(IP_cible);
+									var A_Text = document.createTextNode(ID_cible);
 									var btn_Text = document.createTextNode('CONNECT');
 									btn_conectar.appendChild(btn_Text);
 									btn_conectar.className = "w3-button w3-teal";
