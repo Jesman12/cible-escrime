@@ -110,13 +110,8 @@
 						</div>
 						<!--(ES-MX) FINAL VINCULADO A "js/time.js"-->
 						<div class="w3-center" id="points">
-							<p id="status_pts" style="font-weight:300; font-size:45px">SCORE: <a id="SCORE1">SCORE</a></p>
-							<p id="status_cible" style="font-weight:300; font-size:45px"><a id="ptsJ1">PTS 1</a> pts</p>
-							<hr>
-							<button onclick="javascript:tipo='1';">VOIR 1</button>
-							<button onclick="javascript:tipo='2';">VOIR 2</button>
-							<p id="status_pts" style="font-weight:300; font-size:45px">SCORE: <a id="SCORE2">SCORE</a></p>
-							<p id="status_cible" style="font-weight:300; font-size:45px"><a id="ptsJ2">PTS 1</a> pts</p>
+							<div id="btn_voir">
+							</div>
 						</div>
 					</div>
 					<footer class="w3-container w3-teal">
@@ -260,12 +255,25 @@
 									var div_status_cible = document.createElement("div");
 									var p_status_cible = document.createElement("p");
 									var p_status_cible_pts = document.createElement("p");
+									var txt_p_SC = document.createTextNode("SCORE: ");
+									var txt_p_SC_pts = document.createTextNode("PTS ");
 									
 									var a_status_cible = document.createElement("a");
 									var a_status_cible_pts = document.createElement("a");
 									
+									var btn_voir = document.createElement("button");
+									var txt_btn_voir = document.createTextNode("VOIR CIBLE " + ID_cible);
+									btn_voir.setAttribute("onClick","javascript:tipo='"+ID_cible+"'");
+									document.getElementById("btn_voir").appendChild(btn_voir);
+									
 									a_status_cible.id = "SCORE" + ID_cible;
 									a_status_cible_pts.id = "ptsJ" + ID_cible;
+									
+									p_status_cible.setAttribute("style", "font-weight:300; font-size:45px");
+									p_status_cible_pts.setAttribute("style", "font-weight:300; font-size:45px");
+									
+									p_status_cible.appendChild(txt_p_SC);
+									p_status_cible_pts.appendChild(txt_p_SC_pts);
 									
 									p_status_cible.appendChild(a_status_cible);
 									p_status_cible_pts.appendChild(a_status_cible_pts);
