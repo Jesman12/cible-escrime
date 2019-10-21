@@ -109,7 +109,7 @@
 							</div>
 						</div>
 						<!--(ES-MX) FINAL VINCULADO A "js/time.js"-->
-						<div class="w3-center">
+						<div class="w3-center" id="points">
 							<p id="status_pts" style="font-weight:300; font-size:45px">SCORE: <a id="SCORE1">SCORE</a></p>
 							<p id="status_cible" style="font-weight:300; font-size:45px"><a id="ptsJ1">PTS 1</a> pts</p>
 							<hr>
@@ -255,6 +255,27 @@
 									P_IP.appendChild(btn_conectar);
 									document.getElementById('success').appendChild(P_IP);
 									document.getElementById('scan').style.display = 'block';
+									
+									var div_points = document.getElementById("points");
+									var div_status_cible = document.createElement("div");
+									var p_status_cible = document.createElement("p");
+									var p_status_cible_pts = document.createElement("p");
+									
+									var a_status_cible = document.createElement("a");
+									var a_status_cible_pts = document.createElement("a");
+									
+									a_status_cible.id = "SCORE" + ID_cible;
+									a_status_cible_pts.id = "ptsJ" + ID_cible;
+									
+									p_status_cible.appendChild(a_status_cible);
+									p_status_cible_pts.appendChild(a_status_cible_pts);
+									
+									div_status_cible.id = "SC"+ID_cible;
+									div_status_cible.setAttribute("style","display:none");
+									div_status_cible.appendChild(p_status_cible);
+									div_status_cible.appendChild(p_status_cible_pts);
+									
+									div_points.appendChild(div_status_cible);
 									alert("CIBLE TROUVÉ!");
 								}
 								
@@ -287,6 +308,9 @@
 					CIBLES_CONNECT.push(CIBLE_IP);
 					alert("Connectecté à: " + ip);
 				}
+				var SC = sessionStorage.getItem(CIBLE_IP);
+				SC.substr(0,6);
+				alert(SC);
 				document.getElementById("Dir_IP").innerHTML = ip;
 			}
 		}
