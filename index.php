@@ -328,7 +328,7 @@
 			}
 		}
 	</script>
-	<script language="javascript" src="js/jeu.js?v0.2"></script>
+	<script language="javascript" src="js/jeu.js?v1.0"></script>
 	<footer class="w3-container w3-bottom w3-theme w3-margin-top">
 		<a>LP SEICOM - 2019</a>
 		<button onclick="document.getElementById('status').style.display='block'" class="w3-right w3-button w3-black">STATUS</button>

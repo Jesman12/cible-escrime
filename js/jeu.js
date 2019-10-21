@@ -8,7 +8,6 @@ function getRandomInt(max){
 function MARATHON() 
 {
 	document.getElementById('jeu_select').innerHTML = "MARATHON";
-	document.getElementById('status_cible').style.display = "block";
 	if(seg){
 		start();
 		document.getElementById('status').style.display = 'block';
@@ -54,7 +53,6 @@ function MARATHON()
 }
 function CONTRAT(){
 	document.getElementById('jeu_select').innerHTML = "CONTRAT";
-	document.getElementById('status_cible').style.display = "block";
 	var LED_activo = ["001","010","100"];
 	var indicador = 0;
 	if(seg){
