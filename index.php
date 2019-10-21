@@ -156,7 +156,8 @@
 					var input_checkbox = document.createElement('input');
 					var label_checkbox = document.createElement('label');
 					var p = document.createElement('p');
-					var txt_checkbox = document.createTextNode(elemento);
+					var nom_txt = sessionStorage.getItem(elemento);
+					var txt_checkbox = document.createTextNode(nom_txt);
 					input_checkbox.id = "CIBLE3";
 					input_checkbox.value = elemento;
 					input_checkbox.setAttribute("type","checkbox");
@@ -239,7 +240,17 @@
 									var btn_Text = document.createTextNode('CONNECT');
 									btn_conectar.appendChild(btn_Text);
 									btn_conectar.className = "w3-button w3-teal";
-									btn_conectar.setAttribute("onClick", "IP('"+ IP_cible +"')"); 
+									btn_conectar.setAttribute("onClick", "IP('"+ IP_cible +"')");
+									btn_conectar.id = "Cible" + ID_cible;
+
+									if (typeof(Storage) !== "undefined") {
+									  // Store
+									  sessionStorage.setItem(IP_cible, "CIBLE "+ID_cible);
+									  // Retrieve
+									} else {
+									  alert("Sorry, your browser does not support Web Storage...");
+									}
+
 									A_IP.appendChild(A_Text);
 									P_IP.appendChild(A_IP);
 									P_IP.appendChild(btn_conectar);
