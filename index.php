@@ -289,11 +289,14 @@
 		}
 		function IP(CIBLE_IP){
 			var ejecutar = true;
+			var SC = sessionStorage.getItem(CIBLE_IP);
+				SC = SC.substr(6,1);
 			for(var existe = 0; existe <= CIBLES_CONNECT.length; existe++){
 				if(CIBLES_CONNECT[existe]){
 					if(CIBLES_CONNECT[existe] == (CIBLE_IP || document.getElementById("url_ip").value)){
 						CIBLES_CONNECT.splice(existe, 1);
 						ejecutar = false;
+						document.getElementById("SC"+SC).style.display = 'none';
 						alert("DÉCONNECTÉ!");
 					}
 				}
@@ -308,9 +311,7 @@
 					CIBLES_CONNECT.push(CIBLE_IP);
 					alert("Connectecté à: " + ip);
 				}
-				var SC = sessionStorage.getItem(CIBLE_IP);
-				SC = SC.substr(6,1);
-				alert(SC);
+				document.getElementById("SC"+SC).style.display = 'block';
 				document.getElementById("Dir_IP").innerHTML = ip;
 			}
 		}
