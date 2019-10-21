@@ -30,18 +30,18 @@
 		$search = substr($ip,12);
 		$addres = substr($ip,0,12);
 	?>
-	<header class="centrar-P w3-center w3-theme" style="height:250px">
-		<a class="centrar-H" style="font-size:5vw;">PARAMETRES</a>
+	<header class="centrar-P w3-center w3-theme" style="height:200px">
+		<a class="centrar-H" style="font-size:10vw;">PARAMETRES</a>
 	</header>
 	<div id="p1" class="w3-container w3-padding-16">
 		<div class="w3-container">
 			<span onclick="options('CIBLE')" class="centrar-P w3-button w3-block w3-left-align w3-border w3-green w3-hover-light-green w3-round-large" style="height:250px">
-				<a class="centrar-H" style="font-size:5vw">SELECTIONNEZ LE CIBLE</a>
+				<a class="centrar-H" style="font-size:10vw">SELECTIONNEZ LE CIBLE</a>
 			</span>
 			<!--(ES-MX) INICIO DIV DE BÚSQUEDA Y CONEXIÓN DE "CIBLES"-->
 			<div id="CIBLE" class="w3-container w3-hide w3-center w3-pale-green w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
-				<input id="url_ip" class="w3-button w3-border w3-round-large w3-hover-white w3-center" placeholder="AJOUTER UN IP" type="text" style="width:45%; height:100px; font-size:30px" />
-				<button class="w3-button w3-khaki" style="width:45%; height:100px; font-size:20px" onclick="IP()">ENREGISTRER</button><hr>
+				<input id="url_ip" class="w3-button w3-border w3-round-large w3-hover-white w3-center" placeholder="AJOUTER UN IP" type="text" style="width:100%; height:100px; font-size:30px" /><br>
+				<button class="w3-button w3-khaki" style="width:100%; height:100px; font-size:20px" onclick="IP()">ENREGISTRER</button><hr>
 				<button class="w3-button w3-khaki" style="width:90%; height:100px; font-size:20px" onclick="verificar()">SCAN</button>
 				<div id="scan" style="display:none;">
 					<!--(ES-MX) SE MUESTRA LA IP DEL USUARIO
@@ -60,7 +60,7 @@
 		<!--(ES-MX) INICIO DIV DE CONFIGURACIÓN DE LOS JUEGOS-->
 		<div class="w3-container w3-section">
 			<span onclick="options('JEU')" class="centrar-P w3-button w3-block w3-left-align w3-border w3-red w3-hover-orange w3-round-large" style="height:250px">
-				<a class="centrar-H" style="font-size:5vw">SELECTIONNEZ LE JEU</a>
+				<a class="centrar-H" style="font-size:10vw">SELECTIONNEZ LE JEU</a>
 			</span>
 
 			<div id="JEU" class="w3-container w3-hide w3-center w3-pale-red w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
@@ -295,7 +295,6 @@
 	<script language="javascript" src="js/jeu.js?v0.2"></script>
 	<footer class="w3-container w3-bottom w3-theme w3-margin-top">
 		<a>LP SEICOM - 2019</a>
-		<button onclick="alert(CIBLES_CONNECT[0])" class="w3-right w3-button w3-black">ARRAY</button>
 		<button onclick="document.getElementById('status').style.display='block'" class="w3-right w3-button w3-black">STATUS</button>
 		<button onclick="document.getElementById('p2').style.display='block'" class="w3-right w3-button w3-black">PTS</button>
 	</footer>
