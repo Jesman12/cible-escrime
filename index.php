@@ -223,7 +223,8 @@
 								var buscar_IP_cible = "IP:";
 								var buscar_IP_FIN = "</html>";
 								var pos_IP_cible = data.indexOf(buscar_IP_cible);
-									var IP_cible = data.substr(pos_IP_cible+4);
+								var IP_cible = data.substr(pos_IP_cible+4);
+								alert(IP_cible.length);
 							if (IP_cible.length <= 15) {
 									var pos_IP_FIN = IP_cible.indexOf(buscar_IP_FIN);
 									IP_cible = IP_cible.substr(0,pos_IP_FIN-2);
