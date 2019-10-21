@@ -264,6 +264,8 @@
 									var btn_voir = document.createElement("button");
 									var txt_btn_voir = document.createTextNode("VOIR CIBLE " + ID_cible);
 									btn_voir.setAttribute("onClick","javascript:tipo='"+ID_cible+"'");
+									btn_voir.appendChild(txt_btn_voir);
+									btn_voir.id = "btn_SC"+ID_cible;
 									document.getElementById("btn_voir").appendChild(btn_voir);
 									
 									a_status_cible.id = "SCORE" + ID_cible;
@@ -305,6 +307,7 @@
 						CIBLES_CONNECT.splice(existe, 1);
 						ejecutar = false;
 						document.getElementById("SC"+SC).style.display = 'none';
+						document.getElementById("btn_SC"+SC).style.display = 'none';
 						alert("DÉCONNECTÉ!");
 					}
 				}
@@ -320,6 +323,7 @@
 					alert("Connectecté à: " + ip);
 				}
 				document.getElementById("SC"+SC).style.display = 'block';
+				document.getElementById("btn_SC"+SC).style.display = 'block';
 				document.getElementById("Dir_IP").innerHTML = ip;
 			}
 		}
