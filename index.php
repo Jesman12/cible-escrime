@@ -231,7 +231,7 @@
 									var pos_IP_FIN = IP_cible.indexOf(buscar_IP_FIN);
 									var pos_ID_FIN = ID_cible.indexOf(" IP:");
 									IP_cible = IP_cible.substr(0,pos_IP_FIN-2);
-									ID_cible = IP_cible.substr(0,pos_ID_FIN-1);
+									ID_cible = ID_cible.substr(0,pos_ID_FIN-1);
 									var btn_conectar = document.createElement("button");
 									var P_IP = document.createElement("p");
 									var A_IP = document.createElement("a");
