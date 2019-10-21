@@ -309,7 +309,7 @@
 					alert("Connectecté à: " + ip);
 				}
 				var SC = sessionStorage.getItem(CIBLE_IP);
-				SC.substr(0,6);
+				SC.substr(0,6,1);
 				alert(SC);
 				document.getElementById("Dir_IP").innerHTML = ip;
 			}
