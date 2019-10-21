@@ -78,9 +78,8 @@
 				<hr>
 				<div id="jeux" style="display:none;">
 					<!--(ES-MX) OPCIONES DISPONIBLES DE JUEGOS-->
-					<button class="w3-button w3-khaki" style="width:30%; height:100px" onclick="MARATHON();">MARATHON</button>
-					<button class="w3-button w3-khaki" style="width:30%; height:100px" onclick="CONTRAT()">CONTRAT</button>
-					<button class="w3-button w3-khaki" style="width:30%; height:100px" onclick="MULTIPLE()">MULTIPLE CIBLES</button>
+					<button class="w3-button w3-khaki" style="width:40%; height:100px" onclick="MARATHON();">MARATHON</button>
+					<button class="w3-button w3-khaki" style="width:40%; height:100px" onclick="CONTRAT()">CONTRAT</button>
 				</div>
 			</div>
 		</div>
