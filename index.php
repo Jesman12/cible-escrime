@@ -237,7 +237,7 @@
 									var btn_conectar = document.createElement("button");
 									var P_IP = document.createElement("p");
 									var A_IP = document.createElement("a");
-									var A_Text = document.createTextNode("CIBLE" + ID_cible);
+									var A_Text = document.createTextNode("CIBLE " + ID_cible);
 									var btn_Text = document.createTextNode('CONNECT');
 									btn_conectar.appendChild(btn_Text);
 									btn_conectar.className = "w3-button w3-teal";
