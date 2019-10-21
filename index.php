@@ -31,12 +31,12 @@
 		$addres = substr($ip,0,12);
 	?>
 	<header class="centrar-P w3-center w3-theme" style="height:250px">
-		<a class="centrar-H" style="font-size:100px;">PARAMETRES</a>
+		<a class="centrar-H" style="font-size:5vw;">PARAMETRES</a>
 	</header>
 	<div id="p1" class="w3-container w3-padding-16">
 		<div class="w3-container">
 			<span onclick="options('CIBLE')" class="centrar-P w3-button w3-block w3-left-align w3-border w3-green w3-hover-light-green w3-round-large" style="height:250px">
-				<a class="centrar-H" style="font-size:50px">SELECTIONNEZ LE CIBLE</a>
+				<a class="centrar-H" style="font-size:5vw">SELECTIONNEZ LE CIBLE</a>
 			</span>
 			<!--(ES-MX) INICIO DIV DE BÚSQUEDA Y CONEXIÓN DE "CIBLES"-->
 			<div id="CIBLE" class="w3-container w3-hide w3-center w3-pale-green w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
@@ -60,7 +60,7 @@
 		<!--(ES-MX) INICIO DIV DE CONFIGURACIÓN DE LOS JUEGOS-->
 		<div class="w3-container w3-section">
 			<span onclick="options('JEU')" class="centrar-P w3-button w3-block w3-left-align w3-border w3-red w3-hover-orange w3-round-large" style="height:250px">
-				<a class="centrar-H" style="font-size:50px">SELECTIONNEZ LE JEU</a>
+				<a class="centrar-H" style="font-size:5vw">SELECTIONNEZ LE JEU</a>
 			</span>
 
 			<div id="JEU" class="w3-container w3-hide w3-center w3-pale-red w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
