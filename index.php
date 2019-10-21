@@ -220,26 +220,29 @@
 						dataType:"html",
 						success: function(data, textStatus, jqXHR){
 							if(textStatus == "success"){
-								alert("CIBLE TROUVÉ!");
 								var buscar_IP_cible = "IP:";
 								var buscar_IP_FIN = "</html>";
 								var pos_IP_cible = data.indexOf(buscar_IP_cible);
-								var IP_cible = data.substr(pos_IP_cible+4);
-								var pos_IP_FIN = IP_cible.indexOf(buscar_IP_FIN);
-								IP_cible = IP_cible.substr(0,pos_IP_FIN-2);
-								var btn_conectar = document.createElement("button");
-								var P_IP = document.createElement("p");
-								var A_IP = document.createElement("a");
-								var A_Text = document.createTextNode(IP_cible);
-								var btn_Text = document.createTextNode('CONNECT');
-								btn_conectar.appendChild(btn_Text);
-								btn_conectar.className = "w3-button w3-teal";
-								btn_conectar.setAttribute("onClick", "IP('"+ IP_cible +"')"); 
-								A_IP.appendChild(A_Text);
-								P_IP.appendChild(A_IP);
-								P_IP.appendChild(btn_conectar);
-								document.getElementById('success').appendChild(P_IP);
-								document.getElementById('scan').style.display = 'block';
+								if (pos_IP_cible == true) {
+									var IP_cible = data.substr(pos_IP_cible+4);
+									var pos_IP_FIN = IP_cible.indexOf(buscar_IP_FIN);
+									IP_cible = IP_cible.substr(0,pos_IP_FIN-2);
+									var btn_conectar = document.createElement("button");
+									var P_IP = document.createElement("p");
+									var A_IP = document.createElement("a");
+									var A_Text = document.createTextNode(IP_cible);
+									var btn_Text = document.createTextNode('CONNECT');
+									btn_conectar.appendChild(btn_Text);
+									btn_conectar.className = "w3-button w3-teal";
+									btn_conectar.setAttribute("onClick", "IP('"+ IP_cible +"')"); 
+									A_IP.appendChild(A_Text);
+									P_IP.appendChild(A_IP);
+									P_IP.appendChild(btn_conectar);
+									document.getElementById('success').appendChild(P_IP);
+									document.getElementById('scan').style.display = 'block';
+									alert("CIBLE TROUVÉ!");
+								}
+								
 							}
 						}
 					});
