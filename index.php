@@ -12,7 +12,7 @@
 		<!--(ES-MX) INICIO HOJAS DE ESTILOS -->
 		<link rel="stylesheet" href="css/w3.css">
 		<link rel="stylesheet" href="css/w3-theme-blue.css">
-		<link rel="stylesheet" href="css/style.css?v2">
+		<link rel="stylesheet" href="css/style.css?v2.0">
 		<!--(ES-MX) FINAL HOJAS DE ESTILOS -->
 		<!--(ES-MX) INICIO CÓDIGOS JAVASCRIPT-->
 		<script language="javascript" src="js/jquery-3.4.1.min.js"></script>
