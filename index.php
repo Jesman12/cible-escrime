@@ -94,6 +94,9 @@
 						<h2>JEU: <a id="jeu_select"><b>----</b></a></h2>
 					</header>
 					<div class="w3-container">
+						<div id="btn_voir">
+						<!--(ES-MX) BOTONES CREADOS DINÁMICAMENTE-->
+						</div>
 						<!--(ES-MX) INCIO DIV VINCULADO A "js/time.js"-->
 						<div id="tiempo" class="w3-center" style="width:100%">
 							<div class="chronometer">
@@ -110,8 +113,7 @@
 						</div>
 						<!--(ES-MX) FINAL VINCULADO A "js/time.js"-->
 						<div class="w3-center" id="points">
-							<div id="btn_voir">
-							</div>
+						<!--(ES-MX) CREACION DE SCORES DINÁMICOS-->
 						</div>
 					</div>
 					<footer class="w3-container w3-teal">
@@ -306,8 +308,8 @@
 					if(CIBLES_CONNECT[existe] == (CIBLE_IP || document.getElementById("url_ip").value)){
 						CIBLES_CONNECT.splice(existe, 1);
 						ejecutar = false;
-						document.getElementById("SC"+SC).style.display = 'none';
-						document.getElementById("btn_SC"+SC).style.display = 'none';
+						document.getElementById("points").removeChild("SC"+SC);
+						document.getElementById("btn_voir").removeChild("btn_SC"+SC);
 						alert("DÉCONNECTÉ!");
 					}
 				}
@@ -322,8 +324,6 @@
 					CIBLES_CONNECT.push(CIBLE_IP);
 					alert("Connectecté à: " + ip);
 				}
-				document.getElementById("SC"+SC).style.display = 'block';
-				document.getElementById("btn_SC"+SC).style.display = 'block';
 				document.getElementById("Dir_IP").innerHTML = ip;
 			}
 		}
