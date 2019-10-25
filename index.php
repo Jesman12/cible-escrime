@@ -281,8 +281,8 @@
 									
 									div_points.appendChild(div_status_cible);
 									
-									var div_SC = createElement("div");
-									var txt_div_SC = createTextNode("div" + ID_cible);
+									var div_SC = document.createElement("div");
+									var txt_div_SC = document.createTextNode("div" + ID_cible);
 									div_SC.id = "div" + ID_cible;
 									div_SC.appendChild(txt_div_SC);
 									div_SC.setAttribute("style","height:100%; float:left");
@@ -307,8 +307,9 @@
 					if(CIBLES_CONNECT[existe] == (CIBLE_IP || document.getElementById("url_ip").value)){
 						CIBLES_CONNECT.splice(existe, 1);
 						ejecutar = false;
-						document.getElementById("points").removeChild(document.getElementById("SC"+SC));
-						document.getElementById("btn_voir").removeChild(document.getElementById("btn_SC"+SC));
+						document.getElementById("SC"+SC).style.display = 'none';
+						document.getElementById("btn_SC"+SC).style.display = 'none';
+						document.getElementById("div"+SC).style.display = 'none';
 						alert("DÉCONNECTÉ!");
 					}
 				}
