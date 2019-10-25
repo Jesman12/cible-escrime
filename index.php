@@ -125,14 +125,7 @@
 		<!--(ES-MX) FINAL DIV DE VISUALIZACIÓN DE RESULTADOS Y TIEMPO-->
 	</div>
 	<!--(ES-MX) INICIO OBTENCIÓN DE INFORMACIÓN DE LA BASE DE DATOS (PERMANECE OCULTA PARA EL USUARIO)-->
-	<div id="p2" class="w3-container w3-padding-16" style="margin-bottom:30px; display:none">
-		<div id="div1" style="width:50%; height:100%; float:left;">
-			div 1
-		</div>
-		<div id="div2" style="width:50%; height:100%; float:left;">
-			div 2
-		</div>
-	</div>
+	<div id="p2" class="w3-container w3-padding-16" style="margin-bottom:30px; display:none"></div>
 	<!--(ES-MX) FINAL OBTENCIÓN DE INFORMACIÓN DE LA BASE DE DATOS (PERMANECE OCULTA PARA EL USUARIO)-->
 	<script>
 		//(ES-MX) FUNCIÓN LLAMADA POR LOS SPAN "SELECTIONNEZ..."
@@ -240,9 +233,7 @@
 									btn_conectar.id = "Cible" + ID_cible;
 
 									if (typeof(Storage) !== "undefined") {
-									  // Store
-									  sessionStorage.setItem(IP_cible, "CIBLE "+ID_cible);
-									  // Retrieve
+										sessionStorage.setItem(IP_cible, "CIBLE "+ID_cible);
 									} else {
 									  alert("Sorry, your browser does not support Web Storage...");
 									}
@@ -266,6 +257,7 @@
 									var btn_voir = document.createElement("button");
 									var txt_btn_voir = document.createTextNode("VOIR CIBLE " + ID_cible);
 									btn_voir.setAttribute("onClick","javascript:tipo='"+ID_cible+"'");
+									btn_voir.setAttribute("style","display:none");
 									btn_voir.appendChild(txt_btn_voir);
 									btn_voir.id = "btn_SC"+ID_cible;
 									document.getElementById("btn_voir").appendChild(btn_voir);
@@ -288,6 +280,13 @@
 									div_status_cible.appendChild(p_status_cible_pts);
 									
 									div_points.appendChild(div_status_cible);
+									
+									var div_SC = createElement("div");
+									var txt_div_SC = createTextNode("div" + ID_cible);
+									div_SC.id = "div" + ID_cible;
+									div_SC.appendChild(txt_div_SC);
+									div_SC.setAttribute("style","height:100%; float:left");
+									document.getElementById("p2").appendChild(div_SC);
 									alert("CIBLE TROUVÉ!");
 								}
 								
@@ -308,8 +307,8 @@
 					if(CIBLES_CONNECT[existe] == (CIBLE_IP || document.getElementById("url_ip").value)){
 						CIBLES_CONNECT.splice(existe, 1);
 						ejecutar = false;
-						document.getElementById("points").removeChild("SC"+SC);
-						document.getElementById("btn_voir").removeChild("btn_SC"+SC);
+						document.getElementById("points").removeChild(document.getElementById("SC"+SC));
+						document.getElementById("btn_voir").removeChild(document.getElementById("btn_SC"+SC));
 						alert("DÉCONNECTÉ!");
 					}
 				}
@@ -324,6 +323,8 @@
 					CIBLES_CONNECT.push(CIBLE_IP);
 					alert("Connectecté à: " + ip);
 				}
+				document.getElementById("SC"+SC).style.display = 'block';
+				document.getElementById("btn_SC"+SC).style.display = 'block';
 				document.getElementById("Dir_IP").innerHTML = ip;
 			}
 		}
