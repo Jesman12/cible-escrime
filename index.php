@@ -326,6 +326,7 @@
 				}
 				document.getElementById("SC"+SC).style.display = 'block';
 				document.getElementById("btn_SC"+SC).style.display = 'block';
+				document.getElementById("div"+SC).style.display = 'block';
 				document.getElementById("Dir_IP").innerHTML = ip;
 			}
 		}
