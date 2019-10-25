@@ -26,8 +26,7 @@ function cronometro () {
          pantalla.innerHTML = hh+" : "+mm+" : "+ss+" : "+cc;
 		 if(mm == 01){
 			stop();
-			document.getElementById('status_cible').style.display = "none";
-			document.getElementById('status_pts').style.color = "green";
+		//	document.getElementById('SCORE').style.color = "green"; MODIFICAR SCORE PARA CAMBIAR DE COLOR
 			document.getElementById('screen').style.color = "red";
 			FIN = true;
 		}

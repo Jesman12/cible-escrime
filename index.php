@@ -16,7 +16,7 @@
 		<!--(ES-MX) FINAL HOJAS DE ESTILOS -->
 		<!--(ES-MX) INICIO CÓDIGOS JAVASCRIPT-->
 		<script language="javascript" src="js/jquery-3.4.1.min.js"></script>
-		<script language="javascript" src="js/time.js?v0.1"></script>
+		<script language="javascript" src="js/time.js?v0.2"></script>
 		<script language="javascript" src="js/home.js"></script>
 		<!--(ES-MX) FINAL CÓDIGOS JAVASCRIPT-->
 	</head>
