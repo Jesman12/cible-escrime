@@ -46,9 +46,9 @@
 				<div id="scan" style="display:none;">
 					<!--(ES-MX) SE MUESTRA LA IP DEL USUARIO
 						(ES-MX) SI SE CONECTA CON EL "CIBLE" SE MUESTRA LA IP DEL CIBLE CONECTADO-->
-					<p>VOTRE ADRESSE IP EST: <a id="IP_Servidor"><?Php echo "$ip";?></a></p>
-					<p style="display:none"><a id="IP_Base"><?Php echo "http://$addres";?></a></p>
-					<p>IP: <b><a id="Dir_IP" class="w3-green"></a></b></p>
+					<!--<p>VOTRE ADRESSE IP EST: <a id="IP_Servidor"><?Php //echo "$ip";?></a></p>
+					<p style="display:none"><a id="IP_Base"><?Php //echo "http://$addres";?></a></p>
+					<p>IP: <b><a id="Dir_IP" class="w3-green"></a></b></p>-->
 					<p style="display:none"><a id="error"></a></p>
 					<div id="success">
 						<!--(ES-MX) SE LISTAN TODOS LOS CIBLES DISPONIBLES EN LA RED-->
@@ -318,16 +318,16 @@
 				if(!CIBLE_IP){
 					ip = "http://" + document.getElementById("url_ip").value;
 					CIBLES_CONNECT.push(document.getElementById("url_ip").value);
-					alert("Connectecté à: " + ip);
+					//alert("Connectecté à: " + ip);
 				}else{
 					ip = "http://" + CIBLE_IP;
 					CIBLES_CONNECT.push(CIBLE_IP);
-					alert("Connectecté à: " + ip);
+					//alert("Connectecté à: " + ip);
 				}
 				document.getElementById("SC"+SC).style.display = 'block';
 				document.getElementById("btn_SC"+SC).style.display = 'block';
 				document.getElementById("div"+SC).style.display = 'block';
-				document.getElementById("Dir_IP").innerHTML = ip;
+				//document.getElementById("Dir_IP").innerHTML = ip;
 			}
 		}
 	</script>
