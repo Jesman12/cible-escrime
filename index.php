@@ -170,11 +170,8 @@
 			// (ES-MX) MUESTRA LOS DIV CUANDO SE LES DA CLICK POR PRIMERA VEZ
 			// (ES-MX) OCULTA LOS DIV CUANDO SE LES DA CLICK POR SEGUNDA VEZ
 			var x = document.getElementById(id);
-			var y = document.getElementsByClassName("div-drop");
+			var div = document.getElementsByClassName("div-drop");
 			if (x.className.indexOf("w3-show") == -1) {
-				for(int i = 0; i < x.length; i++){
-					y[i].className.replace(" w3-show", "");
-				}
 				x.className += " w3-show";
 			} else {
 				x.className = x.className.replace(" w3-show", "");
