@@ -16,7 +16,7 @@
 		<!--(ES-MX) FINAL HOJAS DE ESTILOS -->
 		<!--(ES-MX) INICIO CÓDIGOS JAVASCRIPT-->
 		<script language="javascript" src="js/jquery-3.4.1.min.js"></script>
-		<script language="javascript" src="js/time.js?v0.2"></script>
+		<script language="javascript" src="js/time.js?v0.3"></script>
 		<script language="javascript" src="js/home.js"></script>
 		<!--(ES-MX) FINAL CÓDIGOS JAVASCRIPT-->
 	</head>
@@ -102,7 +102,7 @@
 						<div id="tiempo" class="w3-center" style="width:100%">
 							<div class="chronometer">
 								<!--(ES-MX) OBTENCIÓN DEL TIEMPO DE LA LIBRERÍA-->
-								<div id="screen">00 : 00 : 00 : 00</div>
+								<div id="screen">00 : 00 : 00</div>
 								<!--(ES-MX) BOTONES NO DISPONIBLES PARA EL USUARIO-->
 								<div class="buttons" style="display:none;">
 									<button class="emerald" onclick="start()">START &#9658;</button>
@@ -320,11 +320,11 @@
 				if(!CIBLE_IP){
 					ip = "http://" + document.getElementById("url_ip").value;
 					CIBLES_CONNECT.push(document.getElementById("url_ip").value);
-					//alert("Connectecté à: " + ip);
+					alert("CONNECTÉ!");
 				}else{
 					ip = "http://" + CIBLE_IP;
 					CIBLES_CONNECT.push(CIBLE_IP);
-					//alert("Connectecté à: " + ip);
+					alert("CONNECTÉ!");
 				}
 				document.getElementById("SC"+SC).style.display = 'block';
 				document.getElementById("btn_SC"+SC).style.display = 'block';
@@ -335,9 +335,10 @@
 	</script>
 	<script language="javascript" src="js/jeu.js?v1.0"></script>
 	<footer class="w3-container w3-bottom w3-theme w3-margin-top">
-		<a>LP SEICOM - 2019</a>
+		<a><b>LP SEICOM - 2019</b></a> 
+		<a class="w3-center"> - jesman2012@gmail.com</a>
 		<button onclick="document.getElementById('status').style.display='block'" class="w3-right w3-button w3-black">STATUS</button>
-		<button onclick="document.getElementById('p2').style.display='block'" class="w3-right w3-button w3-black">PTS</button>
+		<button style="display:none;" onclick="document.getElementById('p2').style.display='block'" class="w3-right w3-button w3-black">PTS</button>
 	</footer>
 	</body>
 </html>
