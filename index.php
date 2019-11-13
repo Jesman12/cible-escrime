@@ -39,15 +39,16 @@
 				<a class="centrar-H" style="font-size:7vw">SELECTIONNEZ LE CIBLE</a>
 			</span>
 			<!--(ES-MX) INICIO DIV DE BÚSQUEDA Y CONEXIÓN DE "CIBLES"-->
-			<div id="CIBLE" class="w3-container w3-hide w3-center w3-pale-green w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
+			<div id="CIBLE" class="div-drop w3-container w3-hide w3-center w3-pale-green w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
 				<input id="url_ip" class="w3-button w3-border w3-round-large w3-hover-white w3-center" placeholder="AJOUTER UN IP" type="text" style="width:100%; height:100px; font-size:30px" /><br>
 				<button class="w3-button w3-khaki" style="width:100%; height:100px; font-size:20px" onclick="IP()">ENREGISTRER</button><hr>
 				<button class="w3-button w3-khaki" style="width:90%; height:100px; font-size:20px" onclick="verificar()">SCAN</button>
 				<div id="scan" style="display:none;">
 					<!--(ES-MX) SE MUESTRA LA IP DEL USUARIO
 						(ES-MX) SI SE CONECTA CON EL "CIBLE" SE MUESTRA LA IP DEL CIBLE CONECTADO-->
-					<!--<p>VOTRE ADRESSE IP EST: <a id="IP_Servidor"><?Php //echo "$ip";?></a></p>
-					<p style="display:none"><a id="IP_Base"><?Php //echo "http://$addres";?></a></p>
+					<!--<p>VOTRE ADRESSE IP EST: <a id="IP_Servidor"><?Php //echo "$ip";?></a></p>-->
+					<p style="display:none"><a id="IP_Base"><?Php echo "http://$addres";?></a></p>
+					<!--
 					<p>IP: <b><a id="Dir_IP" class="w3-green"></a></b></p>-->
 					<p style="display:none"><a id="error"></a></p>
 					<div id="success">
@@ -63,7 +64,7 @@
 				<a class="centrar-H" style="font-size:7vw">SELECTIONNEZ LE JEU</a>
 			</span>
 
-			<div id="JEU" class="w3-container w3-hide w3-center w3-pale-red w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
+			<div id="JEU" class="div-drop w3-container w3-hide w3-center w3-pale-red w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
 				<div id="config" class="w3-container">
 					<div id="cibles_connect" style="width:50%; height:100%; float:left;" class="w3-card-4">
 						<header class="w3-center"><b>DISPONIBLE</b></header>
@@ -169,7 +170,11 @@
 			// (ES-MX) MUESTRA LOS DIV CUANDO SE LES DA CLICK POR PRIMERA VEZ
 			// (ES-MX) OCULTA LOS DIV CUANDO SE LES DA CLICK POR SEGUNDA VEZ
 			var x = document.getElementById(id);
+			var y = document.getElementsByClassName("div-drop");
 			if (x.className.indexOf("w3-show") == -1) {
+				for(int i = 0; i < x.length; i++){
+					y[i].className.replace(" w3-show", "");
+				}
 				x.className += " w3-show";
 			} else {
 				x.className = x.className.replace(" w3-show", "");
