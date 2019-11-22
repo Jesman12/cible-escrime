@@ -1,7 +1,7 @@
 <?php
 $sevidor = "localhost";
-$usuario = "pi";
-$pass = "raspberry";
+$usuario = "pi";		//pi
+$pass = "raspberry";	//raspberry
 $db = "chat";
 
 $conexion = new mysqli($sevidor, $usuario, $pass, $db);

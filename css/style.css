@@ -1,3 +1,12 @@
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+	background-image: url('../img/background.jpg');
+	min-height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+.city {display:none}
 .centrar-P {
 	display: flex;
 	justify-content: center;
@@ -5,6 +14,9 @@
 }
 .centrar-H {
 	line-height: 200px;
+}
+.CIBLES {
+	font-size: 3vw!important;
 }
 #screen {
 	font-family: Calibri,Arial;

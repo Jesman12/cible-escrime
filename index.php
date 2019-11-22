@@ -12,7 +12,7 @@
 		<!--(ES-MX) INICIO HOJAS DE ESTILOS -->
 		<link rel="stylesheet" href="css/w3.css">
 		<link rel="stylesheet" href="css/w3-theme-blue.css">
-		<link rel="stylesheet" href="css/style.css?v2.0">
+		<link rel="stylesheet" href="css/style.css?v1.0">
 		<!--(ES-MX) FINAL HOJAS DE ESTILOS -->
 		<!--(ES-MX) INICIO CÓDIGOS JAVASCRIPT-->
 		<script language="javascript" src="js/jquery-3.4.1.min.js"></script>
@@ -30,104 +30,153 @@
 		$search = substr($ip,12);
 		$addres = substr($ip,0,12);
 	?>
-	<header class="centrar-P w3-center w3-theme" style="height:200px">
-		<a class="centrar-H" style="font-size:10vw;">PARAMETRES</a>
-	</header>
-	<div id="p1" class="w3-container w3-padding-16">
-		<div class="w3-container">
-			<span onclick="options('CIBLE')" class="centrar-P w3-button w3-block w3-left-align w3-border w3-green w3-hover-light-green w3-round-large" style="height:250px">
-				<a class="centrar-H" style="font-size:7vw">SELECTIONNEZ LE CIBLE</a>
-			</span>
-			<!--(ES-MX) INICIO DIV DE BÚSQUEDA Y CONEXIÓN DE "CIBLES"-->
-			<div id="CIBLE" class="div-drop w3-container w3-hide w3-center w3-pale-green w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
-				<input id="url_ip" class="w3-button w3-border w3-round-large w3-hover-white w3-center" placeholder="AJOUTER UN IP" type="text" style="width:100%; height:100px; font-size:30px" /><br>
-				<button class="w3-button w3-khaki" style="width:100%; height:100px; font-size:20px" onclick="IP()">ENREGISTRER</button><hr>
-				<button class="w3-button w3-khaki" style="width:90%; height:100px; font-size:20px" onclick="verificar()">SCAN</button>
-				<div id="scan" style="display:none;">
-					<!--(ES-MX) SE MUESTRA LA IP DEL USUARIO
-						(ES-MX) SI SE CONECTA CON EL "CIBLE" SE MUESTRA LA IP DEL CIBLE CONECTADO-->
-					<!--<p>VOTRE ADRESSE IP EST: <a id="IP_Servidor"><?Php //echo "$ip";?></a></p>-->
-					<p style="display:none"><a id="IP_Base"><?Php echo "http://$addres";?></a></p>
-					<!--
-					<p>IP: <b><a id="Dir_IP" class="w3-green"></a></b></p>-->
-					<p style="display:none"><a id="error"></a></p>
-					<div id="success">
-						<!--(ES-MX) SE LISTAN TODOS LOS CIBLES DISPONIBLES EN LA RED-->
-					</div>
-				</div>
-			</div>
-			<!--(ES-MX) FINAL DIV DE BÚSQUEDA Y CONEXIÓN DE "CIBLES"-->
-		</div>
-		<!--(ES-MX) INICIO DIV DE CONFIGURACIÓN DE LOS JUEGOS-->
-		<div class="w3-container w3-section">
-			<span onclick="options('JEU')" class="centrar-P w3-button w3-block w3-left-align w3-border w3-red w3-hover-orange w3-round-large" style="height:250px">
-				<a class="centrar-H" style="font-size:7vw">SELECTIONNEZ LE JEU</a>
-			</span>
+	
+	<!--INICIO UI-->
+	<div class="bgimg w3-display-container w3-animate-opacity w3-text-white" style="padding-top:10px">
+	  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+		<img src="img/FFE.png" style="width:30%; height:40%;"/>
+	  </div>
+	  <div class="w3-display-topright w3-padding-large w3-xlarge">
+		<button onclick="options('SCAN')" class="w3-button w3-round-large w3-black">CONFIG.</button>
+	  </div>
+	  <div id="id01" class="w3-modal" style="color:black;">
+	 <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+	  <header class="w3-container w3-black"> 
+	   <span onclick="document.getElementById('id01').style.display='none'" 
+	   class="w3-button w3-black w3-xlarge w3-display-topright">&times;</span>
+	   <h2>PARAMÈTRES</h2>
+	  </header>
 
-			<div id="JEU" class="div-drop w3-container w3-hide w3-center w3-pale-red w3-border w3-padding-32 w3-round-xlarge" style="width:100%">
-				<div id="config" class="w3-container">
-					<div id="cibles_connect" style="width:50%; height:100%; float:left;" class="w3-card-4">
-						<header class="w3-center"><b>DISPONIBLE</b></header>
+	  <div class="w3-bar w3-border-bottom">
+	   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Trouve')">TROUVÉ</button>
+	   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Avances')">AVANCÉS</button>
+	   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Information')">INFORMATION</button>
+	  </div>
+
+	  <div id="Trouve" class="w3-container city">
+	   <h1>TROUVÉ</h1>
+			<div id="SEARCH" class="w3-center" style="display:block;">
+				<!--(ES-MX) INICIO DIV DE BÚSQUEDA Y CONEXIÓN DE "CIBLES"-->			
+					<button id="verificar" class="w3-button w3-round-large w3-khaki" style="width:90%; height:100px; font-size:20px" onclick="verificar()">SCAN</button>
+					<div id="scan" style="display:none;">
+						<p style="display:none"><a id="IP_Base"><?Php echo "http://$addres";?></a></p>
+						<p style="display:none"><a id="error"></a></p>
+						<div id="success">
+							<!--(ES-MX) SE LISTAN TODOS LOS CIBLES DISPONIBLES EN LA RED-->
+						</div>
 					</div>
-					<div id="coordinacion" style="display:none; width:50%; height:100%; float:left;" class="w3-card-4">
-						<header class="w3-center"><b>MODE</b></header>
-						<!--(ES-MX) VINCULACIÓN DE LOS JUEGOS DE LOS "CIBLES"-->
-						<input type="radio" name="tipo_enlaze" value="IDENTIQUE" onChange="javascript:vinc = 'IDENTIQUE';" checked />IDENTIQUE
-						<input type="radio" name="tipo_enlaze" value="DIFFERENT" onChange="javascript:vinc = 'DIFFERENT';"/>DIFFÉRENT
-					</div>
-				</div>
-				<hr>
-				<div id="jeux" style="display:none;">
-					<!--(ES-MX) OPCIONES DISPONIBLES DE JUEGOS-->
-					<button class="w3-button w3-khaki" style="width:40%; height:100px" onclick="MARATHON();">MARATHON</button>
-					<button class="w3-button w3-khaki" style="width:40%; height:100px" onclick="CONTRAT()">CONTRAT</button>
-				</div>
+				<!--(ES-MX) FINAL DIV DE BÚSQUEDA Y CONEXIÓN DE "CIBLES"-->
+			</div>
+	  </div>
+
+	  <div id="Information" class="w3-container city">
+	   <h1>INFORMATION</h1>
+	   <p class="CIBLES"><b>VERSION:</b> 2.1</p>
+	   <p class="CIBLES"><b>REVIEW:</b> 22/11/2019</p>
+	   <p class="CIBLES"><b>DÉVELOPPEUR:</b> Jesus Manuel Cuervo Iturbide</p>
+	   <p class="CIBLES"><b>CONTACT:</b>jesman2012@gmail</p>
+	  </div>
+
+	  <div id="Avances" class="w3-container city">
+		<h1>PARAMÈTRES AVANCÉS</h1>
+		<input id="url_ip" class="w3-button w3-border w3-round-large w3-hover-white w3-center" placeholder="AJOUTER UN IP" type="text" style="width:100%; height:100px; font-size:30px" /><br>
+		<button class="w3-button w3-khaki" style="width:100%; height:100px; font-size:20px" onclick="IP()">ENREGISTRER</button><hr>
+	  </div>
+
+	  <div class="w3-container w3-light-grey w3-padding">
+	   <button class="w3-button w3-right w3-white w3-border" onclick="document.getElementById('id01').style.display='none'">Fermer</button>
+	  </div>
+	 </div>
+	</div>
+	  <div id="JOUER" class="w3-display-middle w3-center">
+		<button class="w3-jumbo w3-animate-top w3-btn w3-round-xlarge w3-yellow" onclick="options('JEU')">JOUER</button>
+		<br>
+		<br>
+		<hr class="w3-border-grey" style="margin:auto;width:40%">
+		<p class="w3-large w3-center">Fédération Française d'Escrime</p>
+	  </div>
+	  <!--(ES-MX) INICIO PARÁMETROS DE JUEGOS-->
+	  <div id="JEU" class="w3-display-middle w3-center" style="display:none; width:100%">
+		<div id="config" class="w3-container">
+			<button onclick="options('JEU')" class="w3-button w3-black">RELOAD</button>
+			<div id="cibles_connect" style="width:100%; height:100%; float:left;" class="w3-card-4">
+				<header class="w3-center"><b>DISPONIBLE</b></header>
+			</div>
+			<div id="coordinacion" style="display:none; width:50%; height:100%; float:left;" class="w3-card-4">
+				<header class="w3-center"><b>MODE</b></header>
+				<!--(ES-MX) VINCULACIÓN DE LOS JUEGOS DE LOS "CIBLES"-->
+				<input type="radio" name="tipo_enlaze" value="IDENTIQUE" onChange="javascript:vinc = 'IDENTIQUE';" checked />IDENTIQUE
+				<input type="radio" name="tipo_enlaze" value="DIFFERENT" onChange="javascript:vinc = 'DIFFERENT';"/>DIFFÉRENT
 			</div>
 		</div>
-		<!--(ES-MX) FINAL DIV DE CONFIGURACIÓN DE LOS JUEGOS-->
-		
-		<!--(ES-MX) INICIO DIV DE VISUALIZACIÓN DE RESULTADOS Y TIEMPO-->
-		<div class="w3-container w3-section">
-			<div id="status" class="w3-modal">
-				<div class="w3-modal-content">
-					<header class="w3-container w3-teal"> 
-						<span onclick="document.getElementById('status').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-						<h2>JEU: <a id="jeu_select"><b>----</b></a></h2>
-					</header>
-					<div class="w3-container">
-						<div id="btn_voir">
-						<!--(ES-MX) BOTONES CREADOS DINÁMICAMENTE-->
-						</div>
-						<!--(ES-MX) INCIO DIV VINCULADO A "js/time.js"-->
-						<div id="tiempo" class="w3-center" style="width:100%">
-							<div class="chronometer">
-								<!--(ES-MX) OBTENCIÓN DEL TIEMPO DE LA LIBRERÍA-->
-								<div id="screen">00 : 00 : 00</div>
-								<!--(ES-MX) BOTONES NO DISPONIBLES PARA EL USUARIO-->
-								<div class="buttons" style="display:none;">
-									<button class="emerald" onclick="start()">START &#9658;</button>
-									<button class="emerald" onclick="stop()">STOP &#8718;</button>
-									<button class="emerald" onclick="resume()" >RESUME &#8634;</button>
-									<button class="emerald" onclick="reset()">RESET &#8635;</button>
+		<hr>
+		<div id="jeux" class="w3-row-padding" style="display:none; width:100%">
+			<!--(ES-MX) OPCIONES DISPONIBLES DE JUEGOS-->
+			<div class="w3-col s6 w3-center">
+			<button class="w3-button w3-khaki" style="width:100%; height:100px" onclick="MARATHON();">MARATHON</button>
+			</div>
+			<div class="w3-col s6 w3-center">
+			<button class="w3-button w3-khaki" style="width:100%; height:100px" onclick="CONTRAT()">CONTRAT</button>
+			</div>
+		</div>
+	  </div>
+	  <!--(ES-MX) FIN PARÁMETROS DE JUEGOS-->
+	  <!--(ES-MX) INICIO DIV DE VISUALIZACIÓN DE RESULTADOS Y TIEMPO-->
+			<div class="w3-container w3-section">
+				<div id="status" class="w3-modal">
+					<div class="w3-modal-content w3-border w3-round-large w3-border-black">
+						<header class="w3-container w3-indigo w3-border w3-round-large"> 
+							<span onclick="document.getElementById('status').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+							<h2>JEU: <a id="jeu_select"><b>----</b></a></h2>
+						</header>
+						<div class="w3-container w3-light-grey">
+							<!--(ES-MX) INCIO DIV VINCULADO A "js/time.js"-->
+							<div id="tiempo" class="w3-center" style="width:100%">
+								<div class="chronometer">
+									<!--(ES-MX) OBTENCIÓN DEL TIEMPO DE LA LIBRERÍA-->
+									<div id="screen">00 : 00 : 00</div>
+									<!--(ES-MX) BOTONES NO DISPONIBLES PARA EL USUARIO-->
+									<div class="buttons" style="display:none;">
+										<button class="emerald" onclick="start()">START &#9658;</button>
+										<button class="emerald" onclick="stop()">STOP &#8718;</button>
+										<button class="emerald" onclick="resume()" >RESUME &#8634;</button>
+										<button class="emerald" onclick="reset()">RESET &#8635;</button>
+									</div>
 								</div>
 							</div>
+							<!--(ES-MX) FINAL VINCULADO A "js/time.js"-->
+							
+							<div class="w3-center w3-content w3-display-container" id="points" style="color:black; padding-top:20px">
+							<!--(ES-MX) CREACION DE SCORES DINÁMICOS-->
+								<div id="SC2" class="MyScore">SC2</div>
+								<div id="SC3" class="MyScore">SC3</div>
+								<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+								<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+							</div>
+							
 						</div>
-						<!--(ES-MX) FINAL VINCULADO A "js/time.js"-->
-						<div class="w3-center" id="points">
-						<!--(ES-MX) CREACION DE SCORES DINÁMICOS-->
-						</div>
+						<footer class="w3-container w3-indigo w3-border w3-round-large">
+							<button class='w3-right w3-button' onclick='borrar();'>RESET</button>
+						</footer>
 					</div>
-					<footer class="w3-container w3-teal">
-						<p>SEICOM <button class='w3-right w3-button' onclick='borrar();'>RESET</button></p>
-					</footer>
 				</div>
 			</div>
-		</div>
-		<!--(ES-MX) FINAL DIV DE VISUALIZACIÓN DE RESULTADOS Y TIEMPO-->
-	</div>
-	<!--(ES-MX) INICIO OBTENCIÓN DE INFORMACIÓN DE LA BASE DE DATOS (PERMANECE OCULTA PARA EL USUARIO)-->
-	<div id="p2" class="w3-container w3-padding-16" style="margin-bottom:30px; display:none"></div>
-	<!--(ES-MX) FINAL OBTENCIÓN DE INFORMACIÓN DE LA BASE DE DATOS (PERMANECE OCULTA PARA EL USUARIO)-->
+			<!--(ES-MX) FINAL DIV DE VISUALIZACIÓN DE RESULTADOS Y TIEMPO-->
+			
+			<!--(ES-MX) INICIO OBTENCIÓN DE INFORMACIÓN DE LA BASE DE DATOS (PERMANECE OCULTA PARA EL USUARIO)-->
+			<div id="p2" class="w3-container w3-padding-16" style="margin-bottom:30px; display:none"></div>
+			<!--(ES-MX) FINAL OBTENCIÓN DE INFORMACIÓN DE LA BASE DE DATOS (PERMANECE OCULTA PARA EL USUARIO)-->
+		
+	  <div class="w3-display-bottomleft w3-padding-large">
+		<a><b>LP SEICOM - 2019</b></a><a class="w3-center"></a>
+	  </div>
+	  <div class="w3-display-bottomright w3-padding-large">
+		<button onclick="document.getElementById('status').style.display='block'" class="w3-button w3-black">STATUS</button>
+		<button style="display:none;" onclick="document.getElementById('p2').style.display='block'" class="w3-button w3-black">PTS</button>
+	  </div>
+</div>
+	<!--FIN UI-->
+	
 	<script>
 		//(ES-MX) FUNCIÓN LLAMADA POR LOS SPAN "SELECTIONNEZ..."
 		function options(id) {
@@ -169,12 +218,15 @@
 			}
 			// (ES-MX) MUESTRA LOS DIV CUANDO SE LES DA CLICK POR PRIMERA VEZ
 			// (ES-MX) OCULTA LOS DIV CUANDO SE LES DA CLICK POR SEGUNDA VEZ
-			var x = document.getElementById(id);
-			var div = document.getElementsByClassName("div-drop");
-			if (x.className.indexOf("w3-show") == -1) {
-				x.className += " w3-show";
-			} else {
-				x.className = x.className.replace(" w3-show", "");
+			if(id == "SCAN"){
+				document.getElementById('id01').style.display='block';
+				openCity(event, 'Trouve');
+			}
+			if(id == "JEU"){
+				CIBLES_POUR_JOUER.forEach(function(){CIBLES_POUR_JOUER.shift();});
+				document.getElementById('jeux').style.display = 'none';
+				document.getElementById('JOUER').style.display = 'none';
+				document.getElementById('JEU').style.display = 'block';
 			}
 		}
 		function incluir(ip){
@@ -198,6 +250,7 @@
 	</script>
 	<script>
 		function verificar(){
+			CIBLES_CONNECT.forEach(function(){CIBLES_CONNECT.shift();});
 			var vaciar = document.getElementById("success");
 				while(vaciar.firstChild){
 					vaciar.removeChild(vaciar.firstChild);
@@ -227,11 +280,13 @@
 									var btn_conectar = document.createElement("button");
 									var P_IP = document.createElement("p");
 									var A_IP = document.createElement("a");
-									var A_Text = document.createTextNode("CIBLE " + ID_cible);
-									var btn_Text = document.createTextNode('CONNECT');
+									var A_Text = document.createTextNode("CIBLE " + ID_cible + " ");
+									var btn_Text = document.createTextNode('CONNECTER');
 									btn_conectar.appendChild(btn_Text);
-									btn_conectar.className = "w3-button w3-teal";
-									btn_conectar.setAttribute("onClick", "IP('"+ IP_cible +"')");
+									btn_conectar.className = "w3-button w3-green";
+									btn_conectar.setAttribute("onClick", "IP('"+ IP_cible +"','"+ ID_cible +"')");
+									btn_conectar.setAttribute("style", "font-size:30px");
+									A_IP.setAttribute("style", "font-size:30px");
 									btn_conectar.id = "Cible" + ID_cible;
 
 									if (typeof(Storage) !== "undefined") {
@@ -239,7 +294,7 @@
 									} else {
 									  alert("Sorry, your browser does not support Web Storage...");
 									}
-
+									P_IP.className = "CIBLES w3-border w3-border-grey w3-round-xlarge";
 									A_IP.appendChild(A_Text);
 									P_IP.appendChild(A_IP);
 									P_IP.appendChild(btn_conectar);
@@ -248,28 +303,24 @@
 									
 									var div_points = document.getElementById("points");
 									var div_status_cible = document.createElement("div");
+									var p_status_cible_joueur = document.createElement("p");
 									var p_status_cible = document.createElement("p");
 									var p_status_cible_pts = document.createElement("p");
+									var txt_p_SC_joueur = document.createTextNode("CIBLE "+ID_cible);
 									var txt_p_SC = document.createTextNode("SCORE: ");
 									var txt_p_SC_pts = document.createTextNode("PTS ");
 									
 									var a_status_cible = document.createElement("a");
 									var a_status_cible_pts = document.createElement("a");
 									
-									var btn_voir = document.createElement("button");
-									var txt_btn_voir = document.createTextNode("VOIR CIBLE " + ID_cible);
-									btn_voir.setAttribute("onClick","javascript:tipo='"+ID_cible+"'");
-									btn_voir.setAttribute("style","display:none");
-									btn_voir.appendChild(txt_btn_voir);
-									btn_voir.id = "btn_SC"+ID_cible;
-									document.getElementById("btn_voir").appendChild(btn_voir);
-									
 									a_status_cible.id = "SCORE" + ID_cible;
 									a_status_cible_pts.id = "ptsJ" + ID_cible;
 									
+									p_status_cible_joueur.setAttribute("style", "font-weight:300; font-size:45px; font-weight:bold");
 									p_status_cible.setAttribute("style", "font-weight:300; font-size:45px");
 									p_status_cible_pts.setAttribute("style", "font-weight:300; font-size:45px");
 									
+									p_status_cible_joueur.appendChild(txt_p_SC_joueur);
 									p_status_cible.appendChild(txt_p_SC);
 									p_status_cible_pts.appendChild(txt_p_SC_pts);
 									
@@ -277,7 +328,9 @@
 									p_status_cible_pts.appendChild(a_status_cible_pts);
 									
 									div_status_cible.id = "SC"+ID_cible;
+									div_status_cible.className = "MyScore";
 									div_status_cible.setAttribute("style","display:none");
+									div_status_cible.appendChild(p_status_cible_joueur);
 									div_status_cible.appendChild(p_status_cible);
 									div_status_cible.appendChild(p_status_cible_pts);
 									
@@ -300,7 +353,7 @@
 		function borrar(){
 			location.href = "limpiar.php";
 		}
-		function IP(CIBLE_IP){
+		function IP(CIBLE_IP,ID){
 			var ejecutar = true;
 			var SC = sessionStorage.getItem(CIBLE_IP);
 				SC = SC.substr(6,1);
@@ -310,8 +363,9 @@
 						CIBLES_CONNECT.splice(existe, 1);
 						ejecutar = false;
 						document.getElementById("SC"+SC).style.display = 'none';
-						document.getElementById("btn_SC"+SC).style.display = 'none';
 						document.getElementById("div"+SC).style.display = 'none';
+						document.getElementById("Cible"+ID).innerHTML = "CONNECTER";
+						document.getElementById("Cible"+ID).className = "w3-button w3-green";
 						alert("DÉCONNECTÉ!");
 					}
 				}
@@ -320,25 +374,44 @@
 				if(!CIBLE_IP){
 					ip = "http://" + document.getElementById("url_ip").value;
 					CIBLES_CONNECT.push(document.getElementById("url_ip").value);
+					document.getElementById("Cible"+ID).innerHTML = "DÉCONNECTER";
+					document.getElementById("Cible"+ID).className = "w3-button w3-red";
 					alert("CONNECTÉ!");
 				}else{
 					ip = "http://" + CIBLE_IP;
 					CIBLES_CONNECT.push(CIBLE_IP);
+					document.getElementById("Cible"+ID).innerHTML = "DÉCONNECTER";
+					document.getElementById("Cible"+ID).className = "w3-button w3-red";
 					alert("CONNECTÉ!");
 				}
 				document.getElementById("SC"+SC).style.display = 'block';
-				document.getElementById("btn_SC"+SC).style.display = 'block';
 				document.getElementById("div"+SC).style.display = 'block';
-				//document.getElementById("Dir_IP").innerHTML = ip;
 			}
 		}
 	</script>
+	<script>
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("MyScore");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";
+		  var MyScore_ID = x[slideIndex-1].id;
+		  var SC_id = MyScore_ID.substr(2);
+		  tipo = SC_id; 
+		}
+	</script>
 	<script language="javascript" src="js/jeu.js?v1.0"></script>
-	<footer class="w3-container w3-bottom w3-theme w3-margin-top">
-		<a><b>LP SEICOM - 2019</b></a> 
-		<a class="w3-center"> - jesman2012@gmail.com</a>
-		<button onclick="document.getElementById('status').style.display='block'" class="w3-right w3-button w3-black">STATUS</button>
-		<button style="display:none;" onclick="document.getElementById('p2').style.display='block'" class="w3-right w3-button w3-black">PTS</button>
-	</footer>
+	<script language="javascript" src="js/UI.js"></script>
 	</body>
 </html>
