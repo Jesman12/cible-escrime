@@ -24,7 +24,9 @@ function cronometro () {
          if (mm < 10) {mm = "0"+mm;}
          if (hh < 10) {hh = "0"+hh;}
          pantalla.innerHTML = mm+" : "+ss+" : "+cc;
-		 if(mm == 01){
+		 var T_Min = document.getElementById("t_M").value;
+		 var T_S = document.getElementById("t_S").value;
+		 if(mm == T_Min && ss >= T_S){
 			stop();
 		//	document.getElementById('SCORE').style.color = "green"; MODIFICAR SCORE PARA CAMBIAR DE COLOR
 			document.getElementById('screen').style.color = "red";
