@@ -115,7 +115,7 @@
 				<!--(ES-MX) OPCIONES DISPONIBLES DE JUEGOS-->
 				<div class="w3-container s6 w3-center w3-padding">
 					<h1>SET TIME</h1>
-					<input id="t_M" class="w3-center" type="number" min="0" max="60" value="01" onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/><label>min</label>
+					<input id="t_M" class="w3-center" type="number" min="0" max="59" value="01" onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/><label>min</label>
 					<input id="t_S" class="w3-center" type="number" min="0" max="59" value="00" onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/><label>s</label>
 				</div><br>
 				<div class="w3-col s6 w3-center">
@@ -154,8 +154,6 @@
 						
 						<div class="w3-center w3-content w3-display-container" id="points" style="color:black; padding-top:20px">
 						<!--(ES-MX) CREACION DE SCORES DINÁMICOS-->
-							<div id="SC2" class="MyScore">SC2</div>
-							<div id="SC3" class="MyScore">SC3</div>
 							<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
 							<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 						</div>
@@ -180,6 +178,8 @@
 			<button onclick="document.getElementById('status').style.display='block'" class="w3-button w3-black">STATUS</button>
 			<button style="display:none;" onclick="document.getElementById('p2').style.display='block'" class="w3-button w3-black">PTS</button>
 		</div>
+	</div>
+	</div>
 	</div>
 	<!--FIN UI-->
 	

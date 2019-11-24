@@ -1,0 +1,11 @@
+{
+	"name": "Cibles Escrime"
+	"short_name": "Cibles Escrime"
+	"icons": [{
+			"src": "img/FFE.png",
+			"sizes": "192x192"
+		}],
+		"display": "standalone",
+		"background_color": "#FFFFFF",
+		"theme_color": "#CCCCCC"
+}
