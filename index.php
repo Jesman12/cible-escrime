@@ -154,6 +154,7 @@
 						
 						<div class="w3-center w3-content w3-display-container" id="points" style="color:black; padding-top:20px">
 						<!--(ES-MX) CREACION DE SCORES DINÁMICOS-->
+						<div class="MyScore">SCORES</div>
 							<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
 							<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 						</div>
