@@ -1,4 +1,4 @@
 <?php
-header("Location: http://192.168.100.1/cible-escrime");
+header("Location: http://192.168.0.100/cible-escrime");
 exit;
 ?>

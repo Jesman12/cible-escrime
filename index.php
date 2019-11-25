@@ -115,6 +115,22 @@
 				<!--(ES-MX) OPCIONES DISPONIBLES DE JUEGOS-->
 				<div class="w3-container s6 w3-center w3-padding">
 					<h1>SET TIME</h1>
+					<table>
+						<tr>
+							<td>
+								hola
+							</td>
+							<td>
+								hola 2
+							</td>
+							<td>
+								hola 3
+							</td>
+							<td>
+								hola 4
+							</td>
+						</tr>
+					</table>
 					<input id="t_M" class="w3-center" type="number" min="0" max="59" value="01" onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/><label>min</label>
 					<input id="t_S" class="w3-center" type="number" min="0" max="59" value="00" onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/><label>s</label>
 				</div><br>
