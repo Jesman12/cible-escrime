@@ -9,6 +9,7 @@
 		<meta name="keywords" content="Escrime, Cibles">
 		<meta name="author" content="Jesus Manuel CUERVO ITURBIDE">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="manifest" href="manifest.json">
 		<!--(ES-MX) FINAL META TAGS-->
 		<!--(ES-MX) INICIO HOJAS DE ESTILOS -->
 		<link rel="stylesheet" href="css/w3.css">
@@ -115,24 +116,54 @@
 				<!--(ES-MX) OPCIONES DISPONIBLES DE JUEGOS-->
 				<div class="w3-container s6 w3-center w3-padding">
 					<h1>SET TIME</h1>
-					<table>
+					<center>
+					<table class="w3-center">
 						<tr>
 							<td>
-								hola
+								<button class="w3-button w3-black w3-round-large" onclick="tiempo('plus','M','1')" style="width:100%">+</button>
 							</td>
 							<td>
-								hola 2
+								
 							</td>
 							<td>
-								hola 3
+								<button class="w3-button w3-black w3-round-large" onclick="tiempo('plus','S','15')" style="width:100%">+</button>
 							</td>
 							<td>
-								hola 4
+								
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<input id="t_M" class="w3-center" type="number" min="0" max="59" value="01" disabled onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/>
+							</td>
+							<td>
+								<label>min</label>
+							</td>
+							<td>
+								<input id="t_S" class="w3-center" type="number" min="0" max="59" value="00" disabled onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/>
+							</td>
+							<td>
+								<label>s</label>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<button class="w3-button w3-black w3-round-large" onclick="tiempo('moins','M','1')" style="width:100%">-</button>
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								<button class="w3-button w3-black w3-round-large" onclick="tiempo('moins','S','15')" style="width:100%">-</button>
+							</td>
+							<td>
+								
 							</td>
 						</tr>
 					</table>
-					<input id="t_M" class="w3-center" type="number" min="0" max="59" value="01" onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/><label>min</label>
-					<input id="t_S" class="w3-center" type="number" min="0" max="59" value="00" onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/><label>s</label>
+					<center>
 				</div><br>
 				<div class="w3-col s6 w3-center">
 					<button id="J_Marathon" class="w3-button w3-khaki" style="width:100%; height:100px" onclick="MARATHON();">MARATHON</button>
@@ -191,7 +222,7 @@
 			<a><b>LP SEICOM - 2019</b></a><a class="w3-center"></a>
 		</div>
 		<div class="w3-display-bottomright w3-padding-large">
-			<button onclick="document.getElementById('status').style.display='block'" class="w3-button w3-black">STATUS</button>
+			<button onclick="document.getElementById('status').style.display='block'" class="w3-button w3-black w3-round-large">STATUS</button>
 			<button style="display:none;" onclick="document.getElementById('p2').style.display='block'" class="w3-button w3-black">PTS</button>
 		</div>
 	</div>
@@ -433,6 +464,29 @@
 			  var SC_id = MyScore_ID.substr(2);
 			  tipo = SC_id; 
 		  }
+		}
+		function tiempo(PouM,C,T){
+			if(PouM == "plus"){
+				if(document.getElementById('t_'+C+'').value < 59){
+					document.getElementById('t_'+C+'').value = parseInt(document.getElementById('t_'+C+'').value) + parseInt(T);
+					if(document.getElementById('t_'+C+'').value < 10){
+						document.getElementById('t_'+C+'').value = "0" + document.getElementById('t_'+C+'').value;
+					}if(document.getElementById('t_'+C+'').value == 60){
+						document.getElementById('t_'+C+'').value = "59";
+					}
+				}
+			}
+			if(PouM == "moins"){
+				if(document.getElementById('t_'+C+'').value > 0){
+					if(document.getElementById('t_'+C+'').value == 59){
+						document.getElementById('t_'+C+'').value = "60";
+					}
+					document.getElementById('t_'+C+'').value = parseInt(document.getElementById('t_'+C+'').value) - parseInt(T);
+					if(document.getElementById('t_'+C+'').value < 10){
+						document.getElementById('t_'+C+'').value = "0" + document.getElementById('t_'+C+'').value;
+					}
+				}
+			}
 		}
 	</script>
 	<script language="javascript" src="js/jeu.js?v1.7"></script>
