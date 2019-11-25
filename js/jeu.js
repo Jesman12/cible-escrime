@@ -7,10 +7,16 @@ function getRandomInt(max){
 	}
 function MARATHON() 
 {
+	document.getElementById('J_Marathon').disabled = true;
+	document.getElementById('J_Contrat').disabled = true;
 	document.getElementById('jeu_select').innerHTML = "MARATHON";
 	if(seg){
 		start();
 		document.getElementById('status').style.display = 'block';
+		var score = document.getElementsByClassName("MyScore");
+		score[0].style.display = 'block';
+		var score_ID = score[0].id;
+		tipo = score_ID.substr(2);
 		seg = false;
 		FIN = false;
 	}
@@ -39,6 +45,8 @@ function MARATHON()
 		}
 		setTimeout('MARATHON()',2000);
 	}else{
+		document.getElementById('J_Marathon').disabled = false;
+		document.getElementById('J_Contrat').disabled = false;
 		for(var cb = 0; cb <= CIBLES_POUR_JOUER.length-1; cb++){
 			$.ajax({
 					async:	true, 
@@ -52,12 +60,18 @@ function MARATHON()
 	}
 }
 function CONTRAT(){
+	document.getElementById('J_Marathon').disabled = true;
+	document.getElementById('J_Contrat').disabled = true;
 	document.getElementById('jeu_select').innerHTML = "CONTRAT";
 	var LED_activo = ["001","010","100"];
 	var indicador = 0;
 	if(seg){
 		start();
 		document.getElementById('status').style.display = 'block';
+		var score = document.getElementsByClassName("MyScore");
+		score[0].style.display = 'block';
+		var score_ID = score[0].id;
+		tipo = score_ID.substr(2);
 		seg = false;
 		FIN = false;
 	}
@@ -77,6 +91,8 @@ function CONTRAT(){
 		}
 		setTimeout('CONTRAT()',2000);
 	}else{
+		document.getElementById('J_Marathon').disabled = false;
+		document.getElementById('J_Contrat').disabled = false;
 		for(var cb = 0; cb <= CIBLES_POUR_JOUER.length-1; cb++){
 			$.ajax({
 					async:	true, 

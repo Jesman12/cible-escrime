@@ -17,7 +17,7 @@
 		<!--(ES-MX) FINAL HOJAS DE ESTILOS -->
 		<!--(ES-MX) INICIO CÓDIGOS JAVASCRIPT-->
 		<script language="javascript" src="js/jquery-3.4.1.min.js"></script>
-		<script language="javascript" src="js/time.js?v0.3"></script>
+		<script language="javascript" src="js/time.js?v1.6"></script>
 		<script language="javascript" src="js/home.js"></script>
 		<!--(ES-MX) FINAL CÓDIGOS JAVASCRIPT-->
 	</head>
@@ -119,10 +119,10 @@
 					<input id="t_S" class="w3-center" type="number" min="0" max="59" value="00" onChange="if(parseInt(this.value,10)<10)this.value='0'+this.value;"/><label>s</label>
 				</div><br>
 				<div class="w3-col s6 w3-center">
-					<button class="w3-button w3-khaki" style="width:100%; height:100px" onclick="MARATHON();">MARATHON</button>
+					<button id="J_Marathon" class="w3-button w3-khaki" style="width:100%; height:100px" onclick="MARATHON();">MARATHON</button>
 				</div>
 				<div class="w3-col s6 w3-center">
-					<button class="w3-button w3-khaki" style="width:100%; height:100px" onclick="CONTRAT()">CONTRAT</button>
+					<button id="J_Contrat" class="w3-button w3-khaki" style="width:100%; height:100px" onclick="CONTRAT()">CONTRAT</button>
 				</div>
 			</div>
 		</div>
@@ -154,7 +154,6 @@
 						
 						<div class="w3-center w3-content w3-display-container" id="points" style="color:black; padding-top:20px">
 						<!--(ES-MX) CREACION DE SCORES DINÁMICOS-->
-						<div class="MyScore">SCORES</div>
 							<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
 							<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 						</div>
@@ -383,15 +382,15 @@
 					CIBLES_CONNECT.push(document.getElementById("url_ip").value);
 					document.getElementById("Cible"+ID).innerHTML = "DÉCONNECTER";
 					document.getElementById("Cible"+ID).className = "w3-button w3-red";
-					alert("CONNECTÉ!");
+					//alert("CONNECTÉ!");
 				}else{
 					ip = "http://" + CIBLE_IP;
 					CIBLES_CONNECT.push(CIBLE_IP);
 					document.getElementById("Cible"+ID).innerHTML = "DÉCONNECTER";
 					document.getElementById("Cible"+ID).className = "w3-button w3-red";
-					alert("CONNECTÉ!");
+					//alert("CONNECTÉ!");
 				}
-				document.getElementById("SC"+SC).style.display = 'block';
+				document.getElementById("SC"+SC).style.display = 'none';
 				document.getElementById("div"+SC).style.display = 'block';
 			}
 		}
@@ -407,18 +406,20 @@
 		function showDivs(n) {
 		  var i;
 		  var x = document.getElementsByClassName("MyScore");
-		  if (n > x.length) {slideIndex = 1}
-		  if (n < 1) {slideIndex = x.length}
-		  for (i = 0; i < x.length; i++) {
-			x[i].style.display = "none";  
+		  if(x[0]){
+			  if (n > x.length) {slideIndex = 1}
+			  if (n < 1) {slideIndex = x.length}
+			  for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";  
+			  }
+			  x[slideIndex-1].style.display = "block";
+			  var MyScore_ID = x[slideIndex-1].id;
+			  var SC_id = MyScore_ID.substr(2);
+			  tipo = SC_id; 
 		  }
-		  x[slideIndex-1].style.display = "block";
-		  var MyScore_ID = x[slideIndex-1].id;
-		  var SC_id = MyScore_ID.substr(2);
-		  tipo = SC_id; 
 		}
 	</script>
-	<script language="javascript" src="js/jeu.js?v1.0"></script>
+	<script language="javascript" src="js/jeu.js?v1.7"></script>
 	<script language="javascript" src="js/UI.js"></script>
 	</body>
 </html>
