@@ -534,10 +534,12 @@
 			Array.prototype.forEach.call(elementosCibles, function(el) {
 				var id_Nom = el.id;
 				var Nombre_id = id_Nom.substr(3);
-				tipo = Nombre_id;
+				//tipo = Nombre_id;
 				var valor = el.getAttribute("valor");
 				//document.getElementById('Puntaje'+valor).innerHTML = Cibles_Score[valor].innerHTML;
+				tipo = 1;
 				document.getElementById('Puntaje0').innerHTML = Cibles_Score[0].innerHTML;
+				tipo = 2;
 				document.getElementById('Puntaje1').innerHTML = Cibles_Score[1].innerHTML;
 			});
 		}
