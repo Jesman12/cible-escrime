@@ -370,7 +370,7 @@
 									a_status_cible.id = "SCORE" + ID_cible;
 									a_status_cible.className = "SCORES";
 									a_status_cible_pts.id = "ptsJ" + ID_cible;
-									p_status_cible_joueur.className('C_Nom');
+									p_status_cible_joueur.className = 'C_Nom';
 									
 									p_status_cible_joueur.setAttribute("style", "font-weight:300; font-size:45px; font-weight:bold");
 									p_status_cible.setAttribute("style", "font-weight:300; font-size:45px");
