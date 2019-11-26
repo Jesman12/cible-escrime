@@ -13,7 +13,6 @@ var puntos_ID1 = 0;
 var nuevo = 0;
 function cargar_push() 
 { 
-
 			$.ajax({
 			async:	true, 
 			type: "POST",
@@ -61,7 +60,7 @@ function cargar_push()
 					$('#div'+tipo).children('.j'+tipo).css("display", "block");
 			}
 			});	
-		setTimeout('cargar_push()',500);
+		setTimeout('cargar_push()',2000);
 }
 
 $(document).ready(function()
