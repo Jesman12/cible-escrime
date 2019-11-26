@@ -18,7 +18,7 @@
 		<!--(ES-MX) FINAL HOJAS DE ESTILOS -->
 		<!--(ES-MX) INICIO CÓDIGOS JAVASCRIPT-->
 		<script language="javascript" src="js/jquery-3.4.1.min.js"></script>
-		<script language="javascript" src="js/time.js?v1.6"></script>
+		<script language="javascript" src="js/time.js?v1.7"></script>
 		<script language="javascript" src="js/home.js"></script>
 		<!--(ES-MX) FINAL CÓDIGOS JAVASCRIPT-->
 	</head>
@@ -467,8 +467,6 @@
 				if(MyScore_ID != "T_reel"){
 					var SC_id = MyScore_ID.substr(2);
 					tipo = SC_id; 
-				}else{
-					Score_TReel();
 				}
 			}
 		}
@@ -510,6 +508,7 @@
 						
 						contenido1.className = "Nombre";
 						contenido1.setAttribute("style", "font-weight:300; font-size:45px; font-weight:bold");
+						contenido2.setAttribute("style", "font-weight:300; font-size:45px");
 						
 						contenido1.id = "Nom"+obt_id;
 						contenido2.id = "Puntaje"+i;
@@ -538,7 +537,7 @@
 			}
 		}
 	</script>
-	<script language="javascript" src="js/jeu.js?v1.8"></script>
+	<script language="javascript" src="js/jeu.js?v1.7"></script>
 	<script language="javascript" src="js/UI.js"></script>
 	</body>
 </html>

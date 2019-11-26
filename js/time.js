@@ -26,12 +26,14 @@ function cronometro () {
          pantalla.innerHTML = mm+" : "+ss+" : "+cc;
 		 var T_Min = document.getElementById("t_M").value;
 		 var T_S = document.getElementById("t_S").value;
+		 document.getElementById('screen').style.color = "green";
 		 if(mm == T_Min && ss >= T_S){
 			stop();
 		//	document.getElementById('SCORE').style.color = "green"; MODIFICAR SCORE PARA CAMBIAR DE COLOR
 			document.getElementById('screen').style.color = "red";
 			FIN = true;
 		}
+		Score_TReel();
          }
 
 function stop () { 
