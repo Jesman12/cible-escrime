@@ -494,11 +494,10 @@
 			}
 		}
 		function Score_TReel(){
-			alert("EJECUTANDO...");
 			var Cibles_Score = document.getElementsByClassName('SCORES');
 			var C_Nom = document.getElementsByClassName('C_Nom');
 			for(var i = 0; i <= C_Nom.length; i++){
-				if(C_Nom[i]){
+				alert(i);
 					var linea = document.createElement('p');
 					var contenido1 = document.createElement('a');
 					var contenido2 = document.createElement('a');
@@ -513,7 +512,6 @@
 					linea.appendChild(contenido2);
 					
 					document.getElementById('T_reel').appendChild(linea); 
-				}
 			}
 		}
 	</script>
