@@ -537,6 +537,7 @@
 				tipo = Nombre_id;
 				var valor = el.getAttribute("valor");
 				document.getElementById('Puntaje'+valor).innerHTML = Cibles_Score[valor].innerHTML;
+				alert("pausa");
 			});
 		}
 	</script>
