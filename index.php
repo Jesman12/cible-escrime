@@ -535,7 +535,8 @@
 				var id_Nom = el.id;
 				var Nombre_id = id_Nom.substr(3);
 				tipo = Nombre_id;
-				alert(Nombre_id);
+				var valor = el.getAttribute("valor");
+				alert(valor);
 				console.log(el.tagName);
 			});
 		}
