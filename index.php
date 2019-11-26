@@ -508,6 +508,7 @@
 						
 						contenido1.className = "Nombre";
 						contenido1.setAttribute("style", "font-weight:300; font-size:45px; font-weight:bold");
+						contenido1.setAttribute("valor", i);
 						contenido2.setAttribute("style", "font-weight:300; font-size:45px");
 						
 						contenido1.id = "Nom"+obt_id;
@@ -529,14 +530,14 @@
 				}
 				rep = false;
 			}
-			document.getElementsByClassName('Nombre').forEach(test);
+			var elementosCibles = document.getElementsByClassName('Nombre');
+			elementosCibles.forEach(test);
 			function test(){
-				for(var i = 0; i < Cibles_Score.length; i++){
-					var id_Nom = document.getElementsByClassName('Nombre')[i].id;
+					var id_Nom = this.id;
 					var Nombre_id = id_Nom.substr(3);
 					tipo = Nombre_id;
-					document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
-				}
+					alert(Nombre_id);
+					//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 			}
 		}
 	</script>
