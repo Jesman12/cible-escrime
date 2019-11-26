@@ -504,6 +504,8 @@
 						var contenido1 = document.createElement('a');
 						var contenido2 = document.createElement('a');
 						
+						var C_SC_id = Cibles_Score.substr(5);
+						contenido1.id = "Nom"+C_SC_id;
 						contenido2.id = "Puntaje"+i;
 						
 						var Nom = C_Nom[i].innerHTML;
@@ -511,6 +513,9 @@
 						
 						var Nom_Cible = document.createTextNode(Nom + ' ');
 						var Sc_Cible = document.createTextNode(Nom_Score);
+						
+						contenido1.appendChild(Nom_Cible);
+						contenido2.appendChild(Sc_Cible);
 						
 						linea.appendChild(contenido1);
 						linea.appendChild(contenido2);
@@ -520,6 +525,8 @@
 				rep = false;
 			}
 			for(var i = 0; i < Cibles_Score.length; i++){
+					var id_Nom = C_Nom.substr(3);
+					tipo = id_Nom; 
 				document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 			}
 		}
