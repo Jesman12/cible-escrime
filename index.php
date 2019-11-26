@@ -467,6 +467,8 @@
 			  if(MyScore_ID != "T_reel"){
 				  var SC_id = MyScore_ID.substr(2);
 				  tipo = SC_id; 
+			  }else{
+				  Score_TReel();
 			  }
 		  }
 		}
