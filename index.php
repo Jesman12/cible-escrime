@@ -200,6 +200,7 @@
 						<!--(ES-MX) FINAL VINCULADO A "js/time.js"-->
 						
 						<div class="w3-center w3-content w3-display-container" id="points" style="color:black; padding-top:20px">
+						<div id="T_reel" class="MyScore"></div>
 						<!--(ES-MX) CREACION DE SCORES DINÁMICOS-->
 							<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
 							<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
@@ -367,7 +368,9 @@
 									var a_status_cible_pts = document.createElement("a");
 									
 									a_status_cible.id = "SCORE" + ID_cible;
+									a_status_cible.className = "SCORES";
 									a_status_cible_pts.id = "ptsJ" + ID_cible;
+									p_status_cible_joueur.className('C_Nom');
 									
 									p_status_cible_joueur.setAttribute("style", "font-weight:300; font-size:45px; font-weight:bold");
 									p_status_cible.setAttribute("style", "font-weight:300; font-size:45px");
@@ -485,6 +488,28 @@
 					if(document.getElementById('t_'+C+'').value < 10){
 						document.getElementById('t_'+C+'').value = "0" + document.getElementById('t_'+C+'').value;
 					}
+				}
+			}
+		}
+		function Score_TReel(){
+			var Cibles_Score = document.getElementsByClassName('SCORES');
+			var C_Nom = document.getElementsByClassName('C_Nom');
+			for(var i = 0; i <= C_Nom.length; i++){
+				if(C_Nom[i]){
+					var linea = document.createElement('p');
+					var contenido1 = document.createElement('a');
+					var contenido2 = document.createElement('a');
+					
+					var Nom = C_Nom[i].innerHTML;
+					var Nom_Score = Cibles_Score[i].innerHTML;
+					
+					var Nom_Cible = document.createTextNode(Nom + ' ');
+					var Sc_Cible = document.createTextNode(Nom_Score);
+					
+					linea.appendChild(contenido1);
+					linea.appendChild(contenido2);
+					
+					document.getElementById('T_reel').appendChild(linea); 
 				}
 			}
 		}
