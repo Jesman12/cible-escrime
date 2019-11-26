@@ -539,6 +539,7 @@
 				document.getElementById('Puntaje'+valor).innerHTML = Cibles_Score[valor].innerHTML;
 			});
 		}
+		setInterval(Score_TReel,2000);
 	</script>
 	<script language="javascript" src="js/jeu.js?v1.7"></script>
 	<script language="javascript" src="js/UI.js"></script>
