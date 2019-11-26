@@ -499,13 +499,15 @@
 			var C_Nom = document.getElementsByClassName('C_Nom');
 			if(rep){
 				for(var i = 0; i < C_Nom.length; i++){
-					alert(i);
 						var linea = document.createElement('p');
 						var contenido1 = document.createElement('a');
 						var contenido2 = document.createElement('a');
 						
 						var C_SC_id = Cibles_Score[i].id;
 						var obt_id = C_SC_id.substr(5);
+						
+						contenido1.className = "Nombre";
+						
 						contenido1.id = "Nom"+obt_id;
 						contenido2.id = "Puntaje"+i;
 						
@@ -526,9 +528,11 @@
 				rep = false;
 			}
 			for(var i = 0; i < Cibles_Score.length; i++){
-					var id_Nom = C_Nom.substr(3);
-					tipo = id_Nom; 
-				document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
+					var id_Nom = document.getElementsByClassName('Nombre')[i].id;
+					var Nombre_id = id_Nom.substr(3);
+					alert(id_Nom);
+					tipo = id_Nom;
+					document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 			}
 		}
 	</script>
