@@ -530,8 +530,8 @@
 			for(var i = 0; i < Cibles_Score.length; i++){
 					var id_Nom = document.getElementsByClassName('Nombre')[i].id;
 					var Nombre_id = id_Nom.substr(3);
-					alert(id_Nom);
-					tipo = id_Nom;
+					alert(Nombre_id);
+					tipo = Nombre_id;
 					document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 			}
 		}
