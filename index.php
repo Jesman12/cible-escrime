@@ -530,16 +530,15 @@
 				}
 				rep = false;
 			}
-			var elementosCibles = document.getElementsByClassName('Nombre');
-			Array.prototype.forEach.call(elementosCibles, function(el) {
-				var id_Nom = el.id;
-				var Nombre_id = id_Nom.substr(3);
-				tipo = Nombre_id;
-				var valor = el.getAttribute("valor");
-				document.getElementById('Puntaje'+valor).innerHTML = Cibles_Score[valor].innerHTML;
-			});
+			for(var i = 0; i < Cibles_Score.length; i++){
+				setTimeout(function(){
+						var id_Nom = document.getElementsByClassName('Nombre')[i].id;
+						var Nombre_id = id_Nom.substr(3);
+						tipo = Nombre_id;
+						document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
+					}, 2000)
+				}
 		}
-		setInterval(Score_TReel,2000);
 	</script>
 	<script language="javascript" src="js/jeu.js?v1.7"></script>
 	<script language="javascript" src="js/UI.js"></script>
