@@ -493,25 +493,34 @@
 				}
 			}
 		}
+		var rep = true;
 		function Score_TReel(){
 			var Cibles_Score = document.getElementsByClassName('SCORES');
 			var C_Nom = document.getElementsByClassName('C_Nom');
-			for(var i = 0; i < C_Nom.length; i++){
-				alert(i);
-					var linea = document.createElement('p');
-					var contenido1 = document.createElement('a');
-					var contenido2 = document.createElement('a');
-					
-					var Nom = C_Nom[i].innerHTML;
-					var Nom_Score = Cibles_Score[i].innerHTML;
-					
-					var Nom_Cible = document.createTextNode(Nom + ' ');
-					var Sc_Cible = document.createTextNode(Nom_Score);
-					
-					linea.appendChild(contenido1);
-					linea.appendChild(contenido2);
-					
-					document.getElementById('T_reel').appendChild(linea); 
+			if(rep){
+				for(var i = 0; i < C_Nom.length; i++){
+					alert(i);
+						var linea = document.createElement('p');
+						var contenido1 = document.createElement('a');
+						var contenido2 = document.createElement('a');
+						
+						contenido2.id = "Puntaje"+i;
+						
+						var Nom = C_Nom[i].innerHTML;
+						var Nom_Score = Cibles_Score[i].innerHTML;
+						
+						var Nom_Cible = document.createTextNode(Nom + ' ');
+						var Sc_Cible = document.createTextNode(Nom_Score);
+						
+						linea.appendChild(contenido1);
+						linea.appendChild(contenido2);
+						
+						document.getElementById('T_reel').appendChild(linea); 
+				}
+				rep = false;
+			}
+			for(var i = 0; i < Cibles_Score.length; i++){
+				document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 			}
 		}
 	</script>
