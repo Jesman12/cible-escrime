@@ -10,7 +10,6 @@ function MARATHON()
 	document.getElementById('J_Marathon').disabled = true;
 	document.getElementById('J_Contrat').disabled = true;
 	document.getElementById('jeu_select').innerHTML = "MARATHON";
-	Score_TReel();
 	if(seg){
 		start();
 		document.getElementById('status').style.display = 'block';
@@ -64,7 +63,6 @@ function CONTRAT(){
 	document.getElementById('J_Marathon').disabled = true;
 	document.getElementById('J_Contrat').disabled = true;
 	document.getElementById('jeu_select').innerHTML = "CONTRAT";
-	Score_TReel();
 	var LED_activo = ["001","010","100"];
 	var indicador = 0;
 	if(seg){
