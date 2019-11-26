@@ -464,8 +464,10 @@
 			  }
 			  x[slideIndex-1].style.display = "block";
 			  var MyScore_ID = x[slideIndex-1].id;
-			  var SC_id = MyScore_ID.substr(2);
-			  tipo = SC_id; 
+			  if(MyScore_ID != "T_reel"){
+				  var SC_id = MyScore_ID.substr(2);
+				  tipo = SC_id; 
+			  }
 		  }
 		}
 		function tiempo(PouM,C,T){
