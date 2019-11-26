@@ -507,6 +507,7 @@
 						var obt_id = C_SC_id.substr(5);
 						
 						contenido1.className = "Nombre";
+						contenido1.setAttribute("style", "font-weight:300; font-size:45px; font-weight:bold");
 						
 						contenido1.id = "Nom"+obt_id;
 						contenido2.id = "Puntaje"+i;
@@ -530,7 +531,6 @@
 			for(var i = 0; i < Cibles_Score.length; i++){
 					var id_Nom = document.getElementsByClassName('Nombre')[i].id;
 					var Nombre_id = id_Nom.substr(3);
-					alert(Nombre_id);
 					tipo = Nombre_id;
 					document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 			}
