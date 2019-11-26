@@ -496,7 +496,7 @@
 		function Score_TReel(){
 			var Cibles_Score = document.getElementsByClassName('SCORES');
 			var C_Nom = document.getElementsByClassName('C_Nom');
-			for(var i = 0; i <= C_Nom.length; i++){
+			for(var i = 0; i < C_Nom.length; i++){
 				alert(i);
 					var linea = document.createElement('p');
 					var contenido1 = document.createElement('a');
