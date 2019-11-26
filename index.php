@@ -531,13 +531,12 @@
 				rep = false;
 			}
 			var elementosCibles = document.getElementsByClassName('Nombre');
-			var contador;
-			for(contador = 0; contador < Cibles_Score.length; contador++){
+			for(var i = 0; i < Cibles_Score.length; i++){
 				setTimeout(function(){
-						var id_Nom = elementosCibles[contador].id;
+						var id_Nom = elementosCibles[1].id;
 						var Nombre_id = id_Nom.substr(3);
 						tipo = Nombre_id;
-						document.getElementById('Puntaje'+contador).innerHTML = Cibles_Score[contador].innerHTML;
+						document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 					}, 2000);
 				}
 		}
