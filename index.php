@@ -454,23 +454,21 @@
 		}
 
 		function showDivs(n) {
-		  var i;
-		  var x = document.getElementsByClassName("MyScore");
-		  if(x[0]){
-			  if (n > x.length) {slideIndex = 1}
-			  if (n < 1) {slideIndex = x.length}
-			  for (i = 0; i < x.length; i++) {
-				x[i].style.display = "none";  
-			  }
-			  x[slideIndex-1].style.display = "block";
-			  var MyScore_ID = x[slideIndex-1].id;
-			  if(MyScore_ID != "T_reel"){
-				  var SC_id = MyScore_ID.substr(2);
-				  tipo = SC_id; 
-			  }else{
-				  Score_TReel();
-			  }
-		  }
+			var i;
+			var x = document.getElementsByClassName("MyScore");
+			if(x[0]){
+				if (n > x.length) {slideIndex = 1}
+				if (n < 1) {slideIndex = x.length}
+				for (i = 0; i < x.length; i++) {
+					x[i].style.display = "none";  
+				}
+				x[slideIndex-1].style.display = "block";
+				var MyScore_ID = x[slideIndex-1].id;
+				if(MyScore_ID != "T_reel"){
+					var SC_id = MyScore_ID.substr(2);
+					tipo = SC_id; 
+				}
+			}
 		}
 		function tiempo(PouM,C,T){
 			if(PouM == "plus"){
@@ -519,7 +517,7 @@
 			}
 		}
 	</script>
-	<script language="javascript" src="js/jeu.js?v1.7"></script>
+	<script language="javascript" src="js/jeu.js?v1.8"></script>
 	<script language="javascript" src="js/UI.js"></script>
 	</body>
 </html>
