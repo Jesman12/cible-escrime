@@ -504,7 +504,7 @@
 						var contenido1 = document.createElement('a');
 						var contenido2 = document.createElement('a');
 						
-						var C_SC_id = Cibles_Score.substr(5);
+						var C_SC_id = Cibles_Score[i].substr(5);
 						contenido1.id = "Nom"+C_SC_id;
 						contenido2.id = "Puntaje"+i;
 						
