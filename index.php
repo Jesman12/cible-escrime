@@ -531,14 +531,13 @@
 				rep = false;
 			}
 			var elementosCibles = document.getElementsByClassName('Nombre');
-			elementosCibles.forEach(test);
-			function test(){
-					var id_Nom = this.id;
-					var Nombre_id = id_Nom.substr(3);
-					tipo = Nombre_id;
-					alert(Nombre_id);
-					//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
-			}
+			Array.prototype.forEach.call(elementosCibles, function(el) {
+				var id_Nom = el.id;
+				var Nombre_id = id_Nom.substr(3);
+				tipo = Nombre_id;
+				alert(Nombre_id);
+				console.log(el.tagName);
+			});
 		}
 	</script>
 	<script language="javascript" src="js/jeu.js?v1.7"></script>
