@@ -496,6 +496,7 @@
 			}
 		}
 		function Score_TReel(){
+			alert("EJECUTANDO...);
 			var Cibles_Score = document.getElementsByClassName('SCORES');
 			var C_Nom = document.getElementsByClassName('C_Nom');
 			for(var i = 0; i <= C_Nom.length; i++){
