@@ -536,9 +536,9 @@
 				var Nombre_id = id_Nom.substr(3);
 				tipo = Nombre_id;
 				var valor = el.getAttribute("valor");
-				$('#Puntaje'+valor).html(Cibles_Score[valor]);
 				//document.getElementById('Puntaje'+valor).innerHTML = Cibles_Score[valor].innerHTML;
-				alert("pausa"+valor);
+				document.getElementById('Puntaje0').innerHTML = Cibles_Score[0].innerHTML;
+				document.getElementById('Puntaje1').innerHTML = Cibles_Score[1].innerHTML;
 			});
 		}
 	</script>
