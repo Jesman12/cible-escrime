@@ -537,10 +537,13 @@
 				//tipo = Nombre_id;
 				var valor = el.getAttribute("valor");
 				//document.getElementById('Puntaje'+valor).innerHTML = Cibles_Score[valor].innerHTML;
-				tipo = 1;
-				document.getElementById('Puntaje0').innerHTML = Cibles_Score[0].innerHTML;
-				tipo = 2;
-				document.getElementById('Puntaje1').innerHTML = Cibles_Score[1].innerHTML;
+				if(document.getElementById('Puntaje0').innerHTML == Cibles_Score[0].innerHTML){
+					tipo = 2;
+					document.getElementById('Puntaje1').innerHTML = Cibles_Score[1].innerHTML;
+				}else{
+					tipo = 1;
+					document.getElementById('Puntaje0').innerHTML = Cibles_Score[0].innerHTML;
+				}
 			});
 		}
 	</script>
