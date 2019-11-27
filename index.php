@@ -286,15 +286,21 @@
 		}
 		function incluir(ip){
 			var borrar = false;
+			var obtener_id = ip.id;
+			var id_CB = obtener_id.substr(2);
 			for(var existe = 0; existe <= CIBLES_POUR_JOUER.length; existe++){
 				if(CIBLES_POUR_JOUER[existe] == ip.value){
 					CIBLES_POUR_JOUER.splice(existe, 1);
 					borrar = true;
+					document.getElementById("p_CB"+id_CB).style.display = "none";
+					document.getElementById("SC"+id_CB).className = "w3-hide";
 					alert("DÉCONNECTÉ!");
 				}
 			}
 			if(!borrar){
 				CIBLES_POUR_JOUER.push(ip.value);
+				document.getElementById("p_CB"+id_CB).style.display = "block";
+				document.getElementById("SC"+id_CB).className = "MyScore";
 			}
 			if(CIBLES_POUR_JOUER.length > 0){
 				document.getElementById('jeux').style.display = 'block';
@@ -512,6 +518,7 @@
 						contenido1.setAttribute("valor", i);
 						contenido2.setAttribute("style", "font-weight:300; font-size:45px");
 						
+						linea.id = "p_CB"+obt_id;
 						contenido1.id = "Nom"+obt_id;
 						contenido2.id = "Puntaje"+obt_id;
 						
