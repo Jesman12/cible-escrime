@@ -232,7 +232,6 @@
 	<!--FIN UI-->
 	
 	<script>
-	Score_TReel();
 		//(ES-MX) FUNCIÓN LLAMADA POR LOS SPAN "SELECTIONNEZ..."
 		function options(id) {
 			//(ES-MX) ANTES DE MOSTRAR LOS "CIBLES" DISPONIBLES, SE ELIMINA TODA LA INFORMACIÓN PREVIA
@@ -547,6 +546,7 @@
 						//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 				}
 		}
+		Score_TReel();
 	</script>
 	<script language="javascript" src="js/jeu.js?v1.7"></script>
 	<script language="javascript" src="js/UI.js"></script>
