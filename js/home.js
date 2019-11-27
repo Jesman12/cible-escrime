@@ -12,7 +12,7 @@ var timestamp = null;
 var puntos_ID1 = 0;
 var nuevo = 0;
 function cargar_push() 
-{ 
+{
 			$.ajax({
 			async:	true, 
 			type: "POST",
@@ -29,7 +29,7 @@ function cargar_push()
 				var encontrar_ID = 'j';
 				var ubicacion_ID = data.indexOf(encontrar_ID);
 				if(inicial_tipo != tipo){
-					$('#div'+inicial_tipo).html("");
+					//$('#div'+inicial_tipo).html("");
 					inicial_tipo = tipo;
 				}
 					$('#div'+tipo).html(data);
