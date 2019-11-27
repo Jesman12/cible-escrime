@@ -33,7 +33,7 @@ function cronometro () {
 			document.getElementById('screen').style.color = "red";
 			FIN = true;
 		}
-		Score_TReel();
+		//Score_TReel();
 	}
 
 function stop () { 

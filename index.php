@@ -293,14 +293,14 @@
 				if(CIBLES_POUR_JOUER[existe] == ip.value){
 					CIBLES_POUR_JOUER.splice(existe, 1);
 					borrar = true;
-					//document.getElementById("p_CB"+id_CB).style.display = "none";
+					document.getElementById("p_CB"+id_CB).style.display = "none";
 					document.getElementById("SC"+id_CB).className = "w3-hide";
 					alert("DÉCONNECTÉ!");
 				}
 			}
 			if(!borrar){
 				CIBLES_POUR_JOUER.push(ip.value);
-				//document.getElementById("p_CB"+id_CB).style.display = "block";
+				document.getElementById("p_CB"+id_CB).style.display = "block";
 				document.getElementById("SC"+id_CB).className = "MyScore";
 			}
 			if(CIBLES_POUR_JOUER.length > 0){
@@ -541,10 +541,15 @@
 			}
 			var elementosCibles = document.getElementsByClassName('Nombre');
 			for(let i = 0; i < Cibles_Score.length; i++){
+					(function(i){
+						setTimeout(function(){
 						var id_Nom = elementosCibles[i].id;
 						var Nombre_id = id_Nom.substr(3);
 						tipo = Nombre_id;
+						Score_TReel();
 						//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
+						}, 1000*i);
+					})(i);
 				}
 		}
 	</script>
