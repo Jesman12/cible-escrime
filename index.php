@@ -285,6 +285,7 @@
 			}
 		}
 		function incluir(ip){
+			Score_TReel();
 			var borrar = false;
 			var obtener_id = ip.id;
 			var id_CB = obtener_id.substr(2);
@@ -546,7 +547,6 @@
 						//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 				}
 		}
-		Score_TReel();
 	</script>
 	<script language="javascript" src="js/jeu.js?v1.7"></script>
 	<script language="javascript" src="js/UI.js"></script>
