@@ -232,6 +232,7 @@
 	<!--FIN UI-->
 	
 	<script>
+	Score_TReel();
 		//(ES-MX) FUNCIÓN LLAMADA POR LOS SPAN "SELECTIONNEZ..."
 		function options(id) {
 			//(ES-MX) ANTES DE MOSTRAR LOS "CIBLES" DISPONIBLES, SE ELIMINA TODA LA INFORMACIÓN PREVIA
