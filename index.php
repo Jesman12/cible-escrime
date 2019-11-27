@@ -546,7 +546,6 @@
 						var id_Nom = elementosCibles[i].id;
 						var Nombre_id = id_Nom.substr(3);
 						tipo = Nombre_id;
-						Score_TReel();
 						//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 						}, 1000*i);
 					})(i);
