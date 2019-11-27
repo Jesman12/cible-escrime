@@ -536,6 +536,7 @@
 						var id_Nom = elementosCibles[i].id;
 						var Nombre_id = id_Nom.substr(3);
 						tipo = Nombre_id;
+						cargar_push();
 						//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 					}, 50);
 				}
