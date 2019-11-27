@@ -512,7 +512,7 @@
 						contenido2.setAttribute("style", "font-weight:300; font-size:45px");
 						
 						contenido1.id = "Nom"+obt_id;
-						contenido2.id = "Puntaje"+i;
+						contenido2.id = "Puntaje"+obt_id;
 						
 						var Nom = C_Nom[i].innerHTML;
 						var Nom_Score = Cibles_Score[i].innerHTML;
@@ -536,7 +536,7 @@
 						var id_Nom = elementosCibles[i].id;
 						var Nombre_id = id_Nom.substr(3);
 						tipo = Nombre_id;
-						document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
+						//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 					}, 50);
 				}
 		}
