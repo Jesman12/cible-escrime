@@ -251,11 +251,12 @@
 					var p = document.createElement('p');
 					var nom_txt = sessionStorage.getItem(elemento);
 					var txt_checkbox = document.createTextNode(nom_txt);
-					input_checkbox.id = "CIBLE3";
+					var Nombre_Cible = nom_txt.substr(6);
+					input_checkbox.id = "CB"+Nombre_Cible;
 					input_checkbox.value = elemento;
 					input_checkbox.setAttribute("type","checkbox");
 					input_checkbox.setAttribute("onChange","incluir(this)");
-					label_checkbox.setAttribute("for","CIBLE3");
+					label_checkbox.setAttribute("for","CIBLE"+Nombre_Cible);
 					label_checkbox.appendChild(txt_checkbox);
 					p.setAttribute("style","font-size:20px");
 					p.appendChild(input_checkbox);
@@ -535,7 +536,6 @@
 						var id_Nom = elementosCibles[i].id;
 						var Nombre_id = id_Nom.substr(3);
 						tipo = Nombre_id;
-						cargar_push();
 						//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
 				}
 		}
