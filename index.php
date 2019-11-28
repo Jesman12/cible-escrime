@@ -417,7 +417,7 @@
 									
 									div_status_cible.id = "SC"+ID_cible;
 									div_status_cible.className = "MyScore";
-									div_status_cible.setAttribute("style","display:none");
+									div_status_cible.setAttribute("style","display:block");
 									div_status_cible.appendChild(p_status_cible_joueur);
 									div_status_cible.appendChild(p_status_cible);
 									div_status_cible.appendChild(p_status_cible_pts);
@@ -437,7 +437,6 @@
 						}
 					});
 			}
-			options('JEU');
 		}
 		function borrar(){
 			location.href = "limpiar.php";
