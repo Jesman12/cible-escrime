@@ -202,8 +202,6 @@
 						<div class="w3-center w3-content w3-display-container" id="points" style="color:black; padding-top:20px">
 						<!--EN DESARROLLO <div id="T_reel" class="MyScore"></div> -->
 						<!--(ES-MX) CREACION DE SCORES DINÁMICOS-->
-							<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-							<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 						</div>
 						
 					</div>
@@ -417,7 +415,7 @@
 									
 									div_status_cible.id = "SC"+ID_cible;
 									div_status_cible.className = "MyScore";
-									div_status_cible.setAttribute("style","display:block");
+									div_status_cible.setAttribute("style","display:none");
 									div_status_cible.appendChild(p_status_cible_joueur);
 									div_status_cible.appendChild(p_status_cible);
 									div_status_cible.appendChild(p_status_cible_pts);
@@ -430,6 +428,8 @@
 									div_SC.appendChild(txt_div_SC);
 									div_SC.setAttribute("style","height:100%; float:left");
 									document.getElementById("p2").appendChild(div_SC);
+									
+									document.getElementsByClassName("MyScore")[0].style.display = "block";
 									//alert("CIBLE TROUVÉ!");
 								}
 								
