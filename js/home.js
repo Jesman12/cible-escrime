@@ -29,7 +29,7 @@ function cargar_push()
 				var encontrar_ID = 'j';
 				var ubicacion_ID = data.indexOf(encontrar_ID);
 				if(inicial_tipo != tipo){
-					//$('#div'+inicial_tipo).html("");
+					$('#div'+inicial_tipo).html("");
 					inicial_tipo = tipo;
 				}
 					$('#div'+tipo).html(data);
@@ -61,7 +61,7 @@ function cargar_push()
 					$('#div'+tipo).children('.j'+tipo).css("display", "block");
 			}
 			});	
-		setTimeout('cargar_push()',50);
+		setTimeout('cargar_push()',500);
 }
 
 $(document).ready(function()
