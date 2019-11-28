@@ -200,7 +200,7 @@
 						<!--(ES-MX) FINAL VINCULADO A "js/time.js"-->
 						
 						<div class="w3-center w3-content w3-display-container" id="points" style="color:black; padding-top:20px">
-						<div id="T_reel" class="MyScore"></div>
+						<!--EN DESARROLLO <div id="T_reel" class="MyScore"></div> -->
 						<!--(ES-MX) CREACION DE SCORES DINÁMICOS-->
 							<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
 							<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
@@ -501,57 +501,8 @@
 				}
 			}
 		}
-		var rep = true;
-		function Score_TReel(){
-			var Cibles_Score = document.getElementsByClassName('SCORES');
-			var C_Nom = document.getElementsByClassName('C_Nom');
-			if(rep){
-				for(var i = 0; i < C_Nom.length; i++){
-						var linea = document.createElement('p');
-						var contenido1 = document.createElement('a');
-						var contenido2 = document.createElement('a');
-						
-						var C_SC_id = Cibles_Score[i].id;
-						var obt_id = C_SC_id.substr(5);
-						
-						contenido1.className = "Nombre";
-						contenido1.setAttribute("style", "font-weight:300; font-size:45px; font-weight:bold");
-						contenido1.setAttribute("valor", i);
-						contenido2.setAttribute("style", "font-weight:300; font-size:45px");
-						
-						linea.id = "p_CB"+obt_id;
-						contenido1.id = "Nom"+obt_id;
-						contenido2.id = "Puntaje"+obt_id;
-						
-						var Nom = C_Nom[i].innerHTML;
-						var Nom_Score = Cibles_Score[i].innerHTML;
-						
-						var Nom_Cible = document.createTextNode(Nom + ' ');
-						var Sc_Cible = document.createTextNode(Nom_Score);
-						
-						contenido1.appendChild(Nom_Cible);
-						contenido2.appendChild(Sc_Cible);
-						
-						linea.appendChild(contenido1);
-						linea.appendChild(contenido2);
-						
-						document.getElementById('T_reel').appendChild(linea); 
-				}
-				rep = false;
-			}
-			var elementosCibles = document.getElementsByClassName('Nombre');
-			for(let i = 0; i < Cibles_Score.length; i++){
-					(function(i){
-						setTimeout(function(){
-						var id_Nom = elementosCibles[i].id;
-						var Nombre_id = id_Nom.substr(3);
-						tipo = Nombre_id;
-						//document.getElementById('Puntaje'+i).innerHTML = Cibles_Score[i].innerHTML;
-						}, 500*i);
-					})(i);
-				}
-		}
 	</script>
+	<script language="javascript" src="js/tiempo_real.js"></script>
 	<script language="javascript" src="js/jeu.js?v1.7"></script>
 	<script language="javascript" src="js/UI.js"></script>
 	</body>

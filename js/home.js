@@ -61,7 +61,7 @@ function cargar_push()
 					$('#div'+tipo).children('.j'+tipo).css("display", "block");
 			}
 			});	
-		setTimeout('cargar_push()',500);
+		setTimeout('cargar_push()',1000);
 }
 
 $(document).ready(function()
