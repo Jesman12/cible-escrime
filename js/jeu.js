@@ -39,7 +39,10 @@ function MARATHON()
 					type: "GET",
 					url: "http://"+CIBLES_POUR_JOUER[cb],
 					data: "LED="+a+b+c,
-					dataType:"html"
+					dataType:"html",
+					error: function(jqXHR, textStatus, errorThrown){
+						console.log(textStatus, errorThrown);
+					}
 				});
 			}
 		}
@@ -86,7 +89,10 @@ function CONTRAT(){
 				type: "GET",
 				url: "http://"+CIBLES_POUR_JOUER[cb],
 				data: "LED="+LED_activo[indicador]+"&jeu=2",
-				dataType:"html"
+				dataType:"html",
+				error: function(jqXHR, textStatus, errorThrown){
+					console.log(textStatus, errorThrown);
+				}
 			});
 		}
 		setTimeout('CONTRAT()',2000);
