@@ -42,6 +42,9 @@ function MARATHON()
 					dataType:"html",
 					error: function(jqXHR, textStatus, errorThrown){
 						console.log(textStatus, errorThrown);
+					},
+					succes: function(data){
+						cargar_push();
 					}
 				});
 			}
@@ -92,6 +95,9 @@ function CONTRAT(){
 				dataType:"html",
 				error: function(jqXHR, textStatus, errorThrown){
 					console.log(textStatus, errorThrown);
+				},
+				succes: function(data){
+					cargar_push();
 				}
 			});
 		}
