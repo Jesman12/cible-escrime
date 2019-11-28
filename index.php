@@ -324,6 +324,23 @@
 				while(vaciar_div_points.firstChild){
 					vaciar_div_points.removeChild(vaciar_div_points.firstChild);
 				}
+				var btn_Izq = document.createElement("button");
+				var btn_Der = document.createElement("button");
+				var txt_btn_Izq = document.createTextNode("&#10094;");
+				var txt_btn_Der = document.createTextNode("&#10095;");
+				
+				btn_Izq.className = "w3-button w3-black w3-display-left";
+				btn_Der.className = "w3-button w3-black w3-display-right";
+				
+				btn_Izq.setAttribute("onClick","plusDivs(-1)");
+				btn_Der.setAttribute("onClick","plusDivs(1)");
+				
+				btn_Izq.appendChild(txt_btn_Izq);
+				btn_Der.appendChild(txt_btn_Der);
+				
+				vaciar_div_points.appendChild(btn_Izq);
+				vaciar_div_points.appendChild(btn_Der);
+				
 			var busqueda = document.getElementById('IP_Base').innerHTML;
 			for(var s = 0; s <= 254; s++){
 				$.ajax({
