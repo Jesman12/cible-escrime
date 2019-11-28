@@ -53,7 +53,6 @@ function cargar_push()
 									$('#ptsJ'+tipo).html("+ "+cible1_pts);
 								}
 								$('#SCORE'+tipo).html(jugadores[pts_jugador]);
-								//$('#Puntaje'+tipo).html(jugadores[pts_jugador]);
 							}
 							nuevo = jugador_activo.length;
 						}

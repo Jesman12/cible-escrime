@@ -13,12 +13,6 @@ function MARATHON()
 	if(seg){
 		start();
 		document.getElementById('status').style.display = 'block';
-		/*
-		var score = document.getElementsByClassName("MyScore");
-		score[0].style.display = 'block';
-		var score_ID = score[0].id;
-		tipo = score_ID.substr(2);
-		*/
 		seg = false;
 		FIN = false;
 	}
@@ -70,12 +64,6 @@ function CONTRAT(){
 	if(seg){
 		start();
 		document.getElementById('status').style.display = 'block';
-		/*
-		var score = document.getElementsByClassName("MyScore");
-		score[0].style.display = 'block';
-		var score_ID = score[0].id;
-		tipo = score_ID.substr(2);
-		*/
 		seg = false;
 		FIN = false;
 	}
