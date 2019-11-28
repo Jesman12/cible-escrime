@@ -86,7 +86,7 @@ function CONTRAT(){
 				indicador = getRandomInt(3);
 			}
 			$.ajax({
-				async:	true, 
+				async:	false, 
 				type: "GET",
 				url: "http://"+CIBLES_POUR_JOUER[cb],
 				data: "LED="+LED_activo[indicador]+"&jeu=2",
