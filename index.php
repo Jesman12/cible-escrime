@@ -428,8 +428,6 @@
 									div_SC.appendChild(txt_div_SC);
 									div_SC.setAttribute("style","height:100%; float:left");
 									document.getElementById("p2").appendChild(div_SC);
-									
-									document.getElementsByClassName("MyScore")[0].style.display = "block";
 									//alert("CIBLE TROUVÉ!");
 								}
 								

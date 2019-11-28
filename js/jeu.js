@@ -13,6 +13,7 @@ function MARATHON()
 		document.getElementById('J_Contrat').disabled = true;
 		document.getElementById('jeu_select').innerHTML = "MARATHON";
 		document.getElementById('status').style.display = 'block';
+		showDivs(1);
 		seg = false;
 		FIN = false;
 	}
@@ -62,6 +63,7 @@ function CONTRAT(){
 		document.getElementById('J_Contrat').disabled = true;
 		document.getElementById('jeu_select').innerHTML = "CONTRAT";
 		document.getElementById('status').style.display = 'block';
+		showDivs(1);
 		seg = false;
 		FIN = false;
 	}
