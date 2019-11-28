@@ -285,7 +285,7 @@
 			}
 		}
 		function incluir(ip){
-			Score_TReel();
+			//Score_TReel();
 			var borrar = false;
 			var obtener_id = ip.id;
 			var id_CB = obtener_id.substr(2);
