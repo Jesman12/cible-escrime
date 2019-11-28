@@ -317,8 +317,12 @@
 		function verificar(){
 			CIBLES_CONNECT.forEach(function(){CIBLES_CONNECT.shift();});
 			var vaciar = document.getElementById("success");
+			var vaciar_div_points = document.getElementById("points");
 				while(vaciar.firstChild){
 					vaciar.removeChild(vaciar.firstChild);
+				}
+				while(vaciar_div_points.firstChild){
+					vaciar_div_points.removeChild(vaciar_div_points.firstChild);
 				}
 			var busqueda = document.getElementById('IP_Base').innerHTML;
 			for(var s = 0; s <= 254; s++){
