@@ -293,14 +293,17 @@
 				if(CIBLES_POUR_JOUER[existe] == ip.value){
 					CIBLES_POUR_JOUER.splice(existe, 1);
 					borrar = true;
-					document.getElementById("p_CB"+id_CB).style.display = "none";
+					<!--(ES-MX) La línea siguiente pertenece a Score_TReel()-->
+					//document.getElementById("p_CB"+id_CB).style.display = "none";
 					document.getElementById("SC"+id_CB).className = "w3-hide";
+					
 					alert("DÉCONNECTÉ!");
 				}
 			}
 			if(!borrar){
 				CIBLES_POUR_JOUER.push(ip.value);
-				document.getElementById("p_CB"+id_CB).style.display = "block";
+				<!--(ES-MX) La línea siguiente pertenece a Score_TReel()-->
+				//document.getElementById("p_CB"+id_CB).style.display = "block";
 				document.getElementById("SC"+id_CB).className = "MyScore";
 			}
 			if(CIBLES_POUR_JOUER.length > 0){
