@@ -34,8 +34,7 @@ function MARATHON()
 					async:	true, 
 					type: "GET",
 					url: "http://"+CIBLES_POUR_JOUER[cb],
-					data: "LED="+a+b+c,
-					dataType:"html"
+					data: "LED="+a+b+c
 				});
 			}
 		}
@@ -48,8 +47,7 @@ function MARATHON()
 					async:	true, 
 					type: "GET",
 					url: "http://"+CIBLES_POUR_JOUER[cb],
-					data: "Start",
-					dataType:"html"
+					data: "Start"
 				});
 			seg = true;
 		}
@@ -74,11 +72,10 @@ function CONTRAT(){
 				indicador = getRandomInt(3);
 			}
 			$.ajax({
-				async:	false, 
+				async:	true, 
 				type: "GET",
 				url: "http://"+CIBLES_POUR_JOUER[cb],
-				data: "LED="+LED_activo[indicador]+"&jeu=2",
-				dataType:"html"
+				data: "LED="+LED_activo[indicador]+"&jeu=2"
 			});
 		}
 		setTimeout('CONTRAT()',2000);
@@ -90,8 +87,7 @@ function CONTRAT(){
 					async:	true, 
 					type: "GET",
 					url: "http://"+CIBLES_POUR_JOUER[cb],
-					data: "Start",
-					dataType:"html"
+					data: "Start"
 				});
 			seg = true;
 		}
