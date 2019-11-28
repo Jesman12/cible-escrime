@@ -326,8 +326,8 @@
 				}
 				var btn_Izq = document.createElement("button");
 				var btn_Der = document.createElement("button");
-				var txt_btn_Izq = document.createTextNode(&#10094;);
-				var txt_btn_Der = document.createTextNode(&#10095;);
+				var txt_btn_Izq = document.createTextNode("<");
+				var txt_btn_Der = document.createTextNode(">");
 				
 				btn_Izq.className = "w3-button w3-black w3-display-left";
 				btn_Der.className = "w3-button w3-black w3-display-right";
