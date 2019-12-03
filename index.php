@@ -30,7 +30,7 @@
 	<?Php
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$search = substr($ip,12);
-		$addres = substr($ip,0,12);
+		$addres = substr($ip,0,9);
 	?>
 	
 	<!--INICIO UI-->
