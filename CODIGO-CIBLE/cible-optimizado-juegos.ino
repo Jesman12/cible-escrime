@@ -15,24 +15,24 @@
 
 WiFiServer server(80);
 HTTPClient http;
-const char* ssid     = "Jesman-AP";
-const char* password = "1915878320";
-const char* host = "192.168.137.1";
+const char* ssid     = "CIBLES-AP";
+const char* password = "";
+
+const char* host = "10.3.141.1"; //IL FAUDRA CHANGER L'IP CI-CÔTé LORS DE L'UTILISATION D'UN NOUVEAU SERVEUR (BOÎTE SERVEUR; PEUT-ÊTRE LA RPI OU QUELQUE SOIT LE SERVEUR UTILISé)
+
+const int httpPort = 80;
 
 long previousMillis = 0;
 long intervalOn = 2000;
 long intervalOff = 3000;
 
-#define BUZZER 3
-#define LED1 12 //LEDs Petite Cible
-#define LED2 14 //LEDs Moyenne Cible
-#define LED3 13 //LEDs Grande Cible
-#define BTN1 16 //Bouton Petite Cible
-#define BTN2 5  //Bouton Petite Cible
-#define BTN3 4  //Bouton Petite Cible
-
-void ISR_BTN2();
-void ISR_BTN3();
+#define BUZZER 3 // (3)(D6)
+#define LED1 12 //LEDs Petite Cible     (12)(D0)
+#define LED2 14 //LEDs Moyenne Cible    (14)(D1)
+#define LED3 13 //LEDs Grande Cible     (13)(D2)
+#define BTN1 16 //Bouton Petite Cible   (16)(D3)
+#define BTN2 5  //Bouton Petite Cible   (5)(D7)
+#define BTN3 4  //Bouton Petite Cible   (4)(D5)
 
 byte state = 0;
 byte prevState;
@@ -51,13 +51,12 @@ bool datos = false;
 bool jeu = false;
 
 String Jeu_Select = "0";
-String url = "/cible-escrime/form.php";
+String id = "1"; //IL FAUDRA MODIFIER LA VALEUR LORSQU'ON VEUT CHANGER LE CIBLE. 
 String IP;
+String url = "/cible-escrime/form.php";
 
 void setup()
 {
-  Serial.begin(9600);
-
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
@@ -66,11 +65,6 @@ void setup()
   pinMode(BTN2, INPUT);
   pinMode(BTN3, INPUT);
 
-  Serial.println();
-  Serial.println();
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
-
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
@@ -78,14 +72,11 @@ void setup()
     digitalWrite(LED2, HIGH);
     digitalWrite(LED3, HIGH);
     delay(500);
-    Serial.print(".");
     digitalWrite(LED1, LOW);
     digitalWrite(LED2, LOW);
     digitalWrite(LED3, LOW);
   }
   IP = WiFi.localIP().toString();
-  Serial.println("");
-  Serial.println("WiFi connected");
   digitalWrite(BUZZER, HIGH);
   delay(500);
   digitalWrite(BUZZER, LOW);  
@@ -93,23 +84,19 @@ void setup()
   digitalWrite(BUZZER, HIGH);
   delay(500);
   digitalWrite(BUZZER, LOW); 
-  Serial.println("IP address: ");
-  Serial.println(IP);
-  Serial.print("connecting to ");
-  Serial.println(host);
-
   server.begin();
-  Serial.println("Servidor INICIADO");
 }
 
 void loop()
 {
+  state = digitalRead(BTN1);
+  state2 = digitalRead(BTN2);
+  state3 = digitalRead(BTN3);
+
   digitalWrite(BUZZER, LOW);
   unsigned long currentMillis = millis();
   WiFiClient client;
-  const int httpPort = 70;
   if (!client.connect(host, httpPort)) {
-    Serial.println("connection failed");
     return;
   }
   while(!jeu){
@@ -129,6 +116,7 @@ void loop()
     client.println("<a href=\"/?LED=010\"\"><button>PTS <b>2</b></button></a>");
     client.println("<a href=\"/?LED=001\"\"><button>PTS <b>1</b></button></a><br />");
     client.println("<a href=\"/?Start\"\"><button><b>JEU!</b></button></a><br />");
+    client.println("id: "+id);
     client.println("IP: "+IP); 
     client.println("</html>");
     String line = client.readStringUntil('\r');
@@ -185,22 +173,16 @@ void loop()
       jeu = false;
     }
   }
-  prevState = state;
   state = digitalRead(BTN1);
-  
-  prevState2 = state2;
   state2 = digitalRead(BTN2);
-  
-  prevState3 = state3;
   state3 = digitalRead(BTN3);
-  
   if((state != prevState) && digitalRead(BTN1)){
     client.stop();
     if(digitalRead(12) == HIGH){
-      url = "/cible-escrime/form.php?id=1&btn=1";
+      url = "/cible-escrime/form.php?id="+id+"&btn=1";
       digitalWrite(LED1, LOW);
     }else{
-      url = "/cible-escrime/form.php?id=1&btn=4";
+      url = "/cible-escrime/form.php?id="+id+"&btn=4";
       digitalWrite(LED1, LOW);
       digitalWrite(LED2, LOW);
       digitalWrite(LED3, LOW);
@@ -210,10 +192,10 @@ void loop()
   if((state2 != prevState2) && digitalRead(BTN2)){
     client.stop();
     if(digitalRead(14) == HIGH){
-      url = "/cible-escrime/form.php?id=1&btn=2";
+      url = "/cible-escrime/form.php?id="+id+"&btn=2";
       digitalWrite(LED2, LOW);
     }else{
-      url = "/cible-escrime/form.php?id=1&btn=4";
+      url = "/cible-escrime/form.php?id="+id+"&btn=4";
       digitalWrite(LED1, LOW);
       digitalWrite(LED2, LOW);
       digitalWrite(LED3, LOW);
@@ -223,26 +205,28 @@ void loop()
   if((state3 != prevState3) && digitalRead(BTN3)){
     client.stop();
     if(digitalRead(13) == HIGH){
-      url = "/cible-escrime/form.php?id=1&btn=3";
+      url = "/cible-escrime/form.php?id="+id+"&btn=3";
       digitalWrite(LED3, LOW);
     }else{
-      url = "/cible-escrime/form.php?id=1&btn=4";
+      url = "/cible-escrime/form.php?id="+id+"&btn=4";
       digitalWrite(LED1, LOW);
       digitalWrite(LED2, LOW);
       digitalWrite(LED3, LOW);
     }
     datos = true;
   }
-      while(datos){
+      if(datos){
         url += "&jeu=";
         url += Jeu_Select;
         http.begin(host,httpPort,url);
         int httpCode = http.GET();
-        datos = false;
         http.end();
         datos = false;
       }
       if((digitalRead(12) == LOW) && (digitalRead(14) == LOW) && (digitalRead(13) == LOW)){
         jeu = false;
       }
+      prevState = state;
+      prevState2 = state2;
+      prevState3 = state3;
 }
